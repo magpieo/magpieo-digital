@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import logo from "../../../asset/logo/logo.png";
 import { FaBars, FaTimes, FaChevronDown } from "react-icons/fa";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 // Unified menu structure
 const menuItems = [
@@ -29,14 +29,30 @@ const Navbar = () => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const pathname = usePathname();
 
-  // Check if route is active
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  // ✅ Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setActiveDropdown(null);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   const isActive = (path: string) => pathname === path;
 
-  // Check if any submenu is active
   const isSubmenuActive = (submenu: { name: string; path: string }[]) =>
     submenu.some((sub) => pathname === sub.path);
 
-  // Toggle dropdown visibility
   const toggleDropdown = (name: string) => {
     setActiveDropdown(activeDropdown === name ? null : name);
   };
@@ -68,10 +84,10 @@ const Navbar = () => {
               ) : (
                 <Link
                   href={item.path}
-                  className={`hover:text-gray-300 relative ${
+                  className={`hover:text-gray-300 pb-1 ${
                     isActive(item.path)
-                      ? "after:absolute after:bottom-[-4px] after:left-1/2 after:-translate-x-1/2 after:w-[10%] after:h-[2px] after:bg-white after:rounded-full"
-                      : ""
+                      ? "border-b-[2px] border-white"
+                      : "border-b-0"
                   }`}
                 >
                   {item.name}
@@ -79,32 +95,29 @@ const Navbar = () => {
               )}
 
               {/* Submenu */}
-          {/* Submenu */}
-{item.submenu && activeDropdown === item.name && (
-  <div className="absolute left-0 mt-3 bg-black text-white space-y-1 py-3 px-4 rounded-md shadow-xl min-w-[240px] z-50">
-    {item.submenu.map((sub) => (
-      <Link
-        key={sub.name}
-        href={sub.path}
-        onClick={() => setActiveDropdown(null)}
-        className={`block text-sm whitespace-nowrap rounded-md px-4 py-2 transition-all
-          ${
-            pathname === sub.path
-              ? "bg-white text-black font-semibold"
-              : "bg-black text-white"
-          }
-          hover:bg-white hover:text-black
-        `}
-      >
-        {sub.name}
-      </Link>
-    ))}
-  </div>
-)}
-
-
-
-
+              {item.submenu && activeDropdown === item.name && (
+                <div
+                  ref={dropdownRef} // ✅ attach ref here
+                  className="absolute left-0 mt-3 bg-black text-white space-y-1 py-3 px-4 rounded-md shadow-xl min-w-[240px] z-50"
+                >
+                  {item.submenu.map((sub) => (
+                    <Link
+                      key={sub.name}
+                      href={sub.path}
+                      onClick={() => setActiveDropdown(null)}
+                      className={`block hover:text-[16px] text-sm whitespace-nowrap rounded-md px-4 py-2 transition-all
+                      ${
+                        pathname === sub.path
+                          ? "bg-white text-black font-semibold"
+                          : "bg-black text-white"
+                      }
+                      hover:bg-white hover:text-black`}
+                    >
+                      {sub.name}
+                    </Link>
+                  ))}
+                </div>
+              )}
             </div>
           ))}
 
@@ -142,31 +155,29 @@ const Navbar = () => {
                     <FaChevronDown size={12} />
                   </button>
 
-                 {activeDropdown === item.name && (
-  <div className="flex flex-col mt-2 space-y-2 pl-4">
-    {item.submenu.map((sub) => (
-      <Link
-        key={sub.name}
-        href={sub.path}
-        onClick={() => {
-          setActiveDropdown(null);
-          setMenuOpen(false);
-        }}
-        className={`text-base rounded-md px-3 py-2 transition-all
-          ${
-            pathname === sub.path
-              ? "bg-white text-black font-medium"
-              : "bg-black text-white"
-          }
-          hover:bg-white hover:text-black
-        `}
-      >
-        {sub.name}
-      </Link>
-    ))}
-  </div>
-)}
-
+                  {activeDropdown === item.name && (
+                    <div className="flex flex-col mt-2 space-y-2 pl-4">
+                      {item.submenu.map((sub) => (
+                        <Link
+                          key={sub.name}
+                          href={sub.path}
+                          onClick={() => {
+                            setActiveDropdown(null);
+                            setMenuOpen(false);
+                          }}
+                          className={`text-base rounded-md px-3 py-2 transition-all
+                          ${
+                            pathname === sub.path
+                              ? "bg-white text-black font-medium"
+                              : "bg-black text-white"
+                          }
+                          hover:bg-white hover:text-black`}
+                        >
+                          {sub.name}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
                 </>
               ) : (
                 <Link
