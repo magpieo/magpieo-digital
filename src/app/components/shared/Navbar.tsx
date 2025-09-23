@@ -55,6 +55,8 @@ const Navbar = () => {
 
   const toggleDropdown = (name: string) => {
     setActiveDropdown(activeDropdown === name ? null : name);
+    console.log('');
+    
   };
 
   return (
