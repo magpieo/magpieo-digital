@@ -42,7 +42,7 @@ const services = [
 const OurService = () => {
   return (
     <div className="py-10">
-      <div className="text-center mb-10">
+      <div className="text-left mb-10">
         <p className="capitalize font-extrabold text-3xl">our services</p>
         <p className="text-slate-400">Crafting digital experiences that inspire</p>
       </div>
@@ -70,7 +70,7 @@ const OurService = () => {
                 ))}
               </div>
             </div>
-            <div>
+            <div className="w-[20%]">
               <Image src={service.image} height={100} alt={service.title} />
             </div>
           </div>
