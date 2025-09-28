@@ -18,8 +18,8 @@ export const services = [
     description:
       "We design intuitive and engaging digital experiences. Our team blends creativity with usability to create seamless user journeys across web and mobile platforms. From research to wireframing, every detail is crafted to delight your audience.",
     keywords: [
-      "Wireframing & Prototyping",
-      "User Research",
+      "Wireframing  ",
+      "User  ",
       "Interaction Design",
     ],
     image: img,
