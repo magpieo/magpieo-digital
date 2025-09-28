@@ -1,16 +1,17 @@
 "use client";
 import heroBanner from "@/asset/home/hero-banner.jpg";
+import MarqueeServices from "./MarqueeServices";
 
 const HeroSection = () => {
   return (
-    <div className="">
+    <div className="relative  overflow-x-hidden">
       <div
         className="h-[80vh] bg-cover bg-center flex items-center "
         style={{
           backgroundImage: `url(${heroBanner.src}) `,
         }}
       >
-        <div className=" text-white max-w-6xl mx-auto space-y-6">
+        <div className=" text-white max-w-6xl mx-auto space-y-6 -mt-24">
           <style jsx>{`
             @keyframes gradientWave {
               0% {
@@ -56,6 +57,10 @@ const HeroSection = () => {
           </p>
           <button className="primary-btn">Let’s Book a Meeting</button>
         </div>
+      </div>
+      {/* marquee services */}
+      <div className="w-full bg-[#212121] absolute bottom-20 -rotate-2 overflow-x-hidden">
+        <MarqueeServices />
       </div>
     </div>
   );
