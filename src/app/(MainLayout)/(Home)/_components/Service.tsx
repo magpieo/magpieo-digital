@@ -1,5 +1,9 @@
+"use client";
+
 import Image from "next/image";
-import img from "../../../../asset/logo/logo.png";
+import { FaCheck } from "react-icons/fa";
+import { motion } from "framer-motion";
+import img from "../../../../asset/home/service/1.png";
 
 const services = [
   {
@@ -39,41 +43,97 @@ const services = [
   },
 ];
 
+
+const cardVariants = {
+  initial: { opacity: 0, y: 40 },
+  animate: { opacity: 1, y: 0 },
+};
+
+const titleVariants = {
+  initial: { scale: 1, y: 0 },
+  hover: { scale: 0.85, y: -10 },
+};
+
+const descVariants = {
+  initial: { opacity: 0, y: 20 },
+  hover: { opacity: 1, y: 0 },
+};
+
+const imageVariants = {
+  initial: { scale: 1 },
+  hover: { scale: 0.9 },
+};
+
 const OurService = () => {
   return (
     <div className="py-10">
-      <div className="text-left mb-10">
-        <p className="capitalize font-extrabold text-3xl">our services</p>
+      {/* Section Title */}
+      <div className="text-center mb-10">
+        <p className="capitalize font-extrabold text-3xl md:text-4xl text-white">
+          our services
+        </p>
         <p className="text-slate-400">Crafting digital experiences that inspire</p>
       </div>
 
+      {/* Service Cards */}
       <div className="space-y-8">
         {services.map((service, index) => (
-          <div
+          <motion.div
             key={index}
-            className="border rounded-2xl p-6 flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm hover:shadow-md transition"
+            className="group relative rounded-2xl p-6 flex flex-col md:flex-row items-center justify-between gap-6 shadow-md bg-slate-900/40 overflow-hidden"
+            variants={cardVariants}
+            initial="initial"
+            whileInView="animate"
+            whileHover="hover"
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+            viewport={{ once: true }}
           >
-            <div className="flex-1">
-              <p className="text-2xl font-semibold text-white mb-2">
+            {/* Left Content */}
+            <div className="flex-1 flex flex-col items-center md:items-start justify-center text-center md:text-left">
+              {/* Title */}
+              <motion.p
+                className="text-4xl md:text-5xl font-bold text-white mb-4"
+                variants={titleVariants}
+                transition={{ duration: 0.4 }}
+              >
                 {service.title}
-              </p>
-              <p className="text-slate-300 mb-3">{service.description}</p>
-              <div className="flex flex-wrap gap-2">
-                {service.keywords.map((keyword, i) => (
-                  
-                  <span
-                    key={i}
-                    className="  text-slate-200 px-3 py-1 text-sm rounded-full"
-                  >
-                    {keyword}
-                  </span>
-                ))}
-              </div>
+              </motion.p>
+
+              {/* Description + Keywords */}
+              <motion.div
+                variants={descVariants}
+                transition={{ duration: 0.5 }}
+                className="max-w-2xl mx-auto md:mx-0"
+              >
+                <p className="text-slate-300 mb-3 text-sm md:text-base">
+                  {service.description}
+                </p>
+                <div className="flex flex-wrap justify-center md:justify-start gap-2">
+                  {service.keywords.map((keyword, i) => (
+                    <span
+                      key={i}
+                      className="flex items-center gap-2 text-slate-200 px-3 py-1 text-sm rounded-full border border-slate-600"
+                    >
+                      <FaCheck className="text-green-400" /> {keyword}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
             </div>
-            <div className="w-[20%]">
-              <Image src={service.image} height={100} alt={service.title} />
-            </div>
-          </div>
+
+            {/* Right Image */}
+            <motion.div
+              className="w-[70%] md:w-[30%] flex justify-center md:justify-end"
+              variants={imageVariants}
+              transition={{ duration: 0.5 }}
+            >
+              <Image
+                src={service.image}
+                alt={service.title}
+                className="rounded-xl object-contain"
+              />
+            </motion.div>
+          </motion.div>
         ))}
       </div>
     </div>
