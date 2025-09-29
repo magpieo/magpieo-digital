@@ -60,7 +60,7 @@ const Navbar = () => {
 
   return (
     <nav className="bg-black text-white sticky top-0 z-50 shadow-md">
-      <div className="flex justify-between items-center  px-4  py-4 max-w-7xl mx-auto">
+      <div className="flex justify-between items-center  px-4  py-4 max-w-6xl mx-auto">
         {/* Logo */}
         <div>
           <Image src={logo} alt="magpieo_logo" height={150} width={150} />
