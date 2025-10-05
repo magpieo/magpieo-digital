@@ -2,7 +2,6 @@ import Image from "next/image";
 import WidthWrapper from "../WidthWrapper";
 import logo from "../../../asset/logo/logo.png";
 import { FaFacebookF, FaLinkedinIn, FaInstagram, FaTwitter } from "react-icons/fa";
-import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -78,27 +77,9 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-      import Link from "next/link";
-
-{/* Bottom Bar */}
-<div className="mt-10 border-t border-gray-700 pt-6 flex flex-col md:flex-row items-center justify-between text-gray-400 text-sm">
-  {/* Left Side */}
-  <p>© {new Date().getFullYear()} Magpieo. All Rights Reserved.</p>
-
-  {/* Right Side */}
-  <div className="flex gap-6 mt-4 md:mt-0">
-    <Link href="/privacy-policy" className="hover:text-orange-400">
-      Privacy Policy
-    </Link>
-    <Link href="/terms-of-use" className="hover:text-orange-400">
-      Terms of Use
-    </Link>
-    <Link href="/sitemap" className="hover:text-orange-400">
-      Sitemap
-    </Link>
-  </div>
-</div>
- 
+        <div className="mt-10 border-t border-gray-700 pt-6 text-center text-gray-400 text-sm">
+          © {new Date().getFullYear()} Macat Megatrons. All Rights Reserved.
+        </div>
       </WidthWrapper>
     </footer>
   );
