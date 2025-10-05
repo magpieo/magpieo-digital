@@ -9,8 +9,8 @@ const Home = () => {
     <div>
       <HeroSection />
       {/* <Footer/> */}
-      <div className="px-4">
-           <div className="bg-[#110F0F]">
+      <div className="">
+           <div className="bg-[#110F0F] ">
           <WhyChoose />
         </div>
         <div className="max-w-6xl mx-auto ">

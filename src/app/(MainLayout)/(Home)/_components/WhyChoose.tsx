@@ -1,5 +1,5 @@
 import React from "react";
-import { FaCircle } from "react-icons/fa";
+import { FaCheck, FaCheckCircle, FaCircle, FaDownload } from "react-icons/fa";
 
 const WhyChoose = () => {
   const chooseData = [
@@ -38,12 +38,23 @@ const WhyChoose = () => {
           <h2 className="text-3xl sm:text-4xl font-bold leading-snug">
             Why Choose <span className="text-blue-500">Magpieo?</span>
           </h2>
-          <div className="w-20 h-[3px] bg-blue-500 mx-auto lg:mx-0 rounded-md"></div>
-          <p className="text-gray-300 text-base leading-relaxed max-w-lg mx-auto lg:mx-0">
+          {/* <div className="w-20 h-[3px] bg-blue-500 mx-auto lg:mx-0 rounded-md"></div> */}
+          <p className="text-gray-400 text-base leading-relaxed max-w-lg mx-auto lg:mx-0">
             We craft impactful digital solutions that blend innovation,
             creativity, and strategy — helping global brands grow and thrive in
             the digital age.
           </p>
+
+          <button className="relative overflow-hidden border border-gray-400 text-[10px] sm:text-xs md:text-sm uppercase px-5 py-2 rounded-full font-medium text-white group transition-all duration-500 cursor-pointer">
+            {/* Background animation */}
+            <span className="absolute left-0 top-0 h-full w-0 bg-blue-600 transition-all duration-500 group-hover:w-full"></span>
+
+            {/* Text + Icon */}
+            <span className="relative z-10 flex items-center gap-2 justify-center">
+              Download Portfolio
+              <FaDownload className="text-[12px] sm:text-[14px] transition-transform duration-300 group-hover:translate-y-[2px]" />
+            </span>
+          </button>
         </div>
 
         {/* Right Side */}
@@ -51,10 +62,10 @@ const WhyChoose = () => {
           {chooseData.map((item, index) => (
             <div
               key={index}
-              className="flex items-start gap-4 p-4 rounded-xl hover:bg-blue-900/20 transition-all duration-300"
+              className="flex items-start gap-4 p-2 rounded-xl hover:bg-blue-900/20 transition-all duration-300"
             >
               <div className="mt-1 text-blue-500 flex-shrink-0">
-                <FaCircle size={10} />
+                <FaCheckCircle size={20} />
               </div>
               <div>
                 <h3 className="text-base sm:text-lg font-semibold mb-1">
