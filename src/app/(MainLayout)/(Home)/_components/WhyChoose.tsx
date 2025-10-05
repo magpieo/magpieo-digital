@@ -31,12 +31,26 @@ const WhyChoose = () => {
   ];
 
   return (
-    <section className="bg-[#110F0F] text-white py-16 ">
+    <section className="bg-[#110F0F] text-white py-16 px-4">
       <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
         {/* Left Side */}
         <div className="space-y-5 text-center lg:text-left">
           <h2 className="text-3xl sm:text-4xl font-bold leading-snug">
-            Why Choose <span className="text-blue-500">Magpieo?</span>
+            Why Choose{" "}
+            <span
+              className=""
+              style={{
+                background:
+                  "linear-gradient(90deg, #FFFFFF, #0074FF, #FFFFFF,  #0074FF)",
+                backgroundSize: "300% 300%",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                //   display: "inline-block",
+                animation: "gradientWave 7s ease infinite",
+              }}
+            >
+              Magpieo
+            </span>
           </h2>
           {/* <div className="w-20 h-[3px] bg-blue-500 mx-auto lg:mx-0 rounded-md"></div> */}
           <p className="text-gray-400 text-base leading-relaxed max-w-lg mx-auto lg:mx-0">
@@ -47,7 +61,7 @@ const WhyChoose = () => {
 
           <button className="relative overflow-hidden border border-gray-400 text-[10px] sm:text-xs md:text-sm uppercase px-5 py-2 rounded-full font-medium text-white group transition-all duration-500 cursor-pointer">
             {/* Background animation */}
-            <span className="absolute left-0 top-0 h-full w-0 bg-blue-600 transition-all duration-500 group-hover:w-full"></span>
+            <span className="absolute left-0 top-0 h-full w-0 bg-[#1E90FF] transition-all duration-500 group-hover:w-full"></span>
 
             {/* Text + Icon */}
             <span className="relative z-10 flex items-center gap-2 justify-center">

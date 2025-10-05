@@ -8,15 +8,13 @@ const Home = () => {
   return (
     <div>
       <HeroSection />
-      {/* <Footer/> */}
       <div className="">
-           <div className="bg-[#110F0F] ">
-          <WhyChoose />
-        </div>
         <div className="max-w-6xl mx-auto ">
           <OurService />
         </div>
-      
+        <div className="bg-[#110F0F] ">
+          <WhyChoose />
+        </div>
       </div>
     </div>
   );
