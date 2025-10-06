@@ -1,5 +1,5 @@
 import React from "react";
-import { FaCheck, FaCheckCircle, FaCircle, FaDownload } from "react-icons/fa";
+import { FaCheckCircle, FaDownload } from "react-icons/fa";
 
 const WhyChoose = () => {
   const chooseData = [
@@ -32,28 +32,27 @@ const WhyChoose = () => {
 
   return (
     <section className="bg-[#110F0F] text-white py-16 px-4">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
-        {/* Left Side */}
-        <div className="space-y-5 text-center lg:text-left">
+      <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-10 items-start">
+        {/* Left Side (1/3 on large screens) */}
+        <div className="lg:w-1/3 space-y-6 text-center lg:text-left flex flex-col items-center lg:items-start">
           <h2 className="text-3xl sm:text-4xl font-bold leading-snug">
             Why Choose{" "}
             <span
               className=""
               style={{
                 background:
-                  "linear-gradient(90deg, #FFFFFF, #0074FF, #FFFFFF,  #0074FF)",
+                  "linear-gradient(90deg, #FFFFFF, #0074FF, #FFFFFF, #0074FF)",
                 backgroundSize: "300% 300%",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
-                //   display: "inline-block",
                 animation: "gradientWave 7s ease infinite",
               }}
             >
               Magpieo
             </span>
           </h2>
-          {/* <div className="w-20 h-[3px] bg-blue-500 mx-auto lg:mx-0 rounded-md"></div> */}
-          <p className="text-gray-400 text-base leading-relaxed max-w-lg mx-auto lg:mx-0">
+
+          <p className="text-gray-400 text-base leading-relaxed max-w-md mx-auto lg:mx-0">
             We craft impactful digital solutions that blend innovation,
             creativity, and strategy — helping global brands grow and thrive in
             the digital age.
@@ -71,8 +70,8 @@ const WhyChoose = () => {
           </button>
         </div>
 
-        {/* Right Side */}
-        <div className="space-y-6">
+        {/* Right Side (2/3 on large screens) */}
+        <div className="lg:w-2/3 space-y-6">
           {chooseData.map((item, index) => (
             <div
               key={index}
