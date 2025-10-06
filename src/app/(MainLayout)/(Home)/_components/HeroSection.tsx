@@ -10,7 +10,7 @@ const HeroSection = () => {
           backgroundImage: `url(${heroBanner.src}) `,
         }}
       >
-        <div className=" text-white max-w-6xl mx-auto space-y-6">
+        <div className=" text-white max-w-6xl mx-auto space-y-6 px-4">
           <style jsx>{`
             @keyframes gradientWave {
               0% {

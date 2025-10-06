@@ -11,11 +11,11 @@ const OurService = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   return (
-    <div className="py-10 ">
+    <div className="py-10 px-4">
       {/* Section Title */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 px-4 md:px-0 gap-4 md:gap-0">
         <p className="capitalize font-extrabold text-3xl md:text-4xl text-white">
-          our solutions
+          solutions
         </p>
         <p className="text-slate-400 text-sm md:text-base text-right md:max-w-xl lg:max-w-2xl">
           We deliver end-to-end digital solutions that help global brands stand
