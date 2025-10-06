@@ -36,7 +36,7 @@ const techIcons = [
   { icon: SiFramer, color: "#EC4899", name: "Framer Motion" },
   { icon: FaFigma, color: "#A855F7", name: "Figma" },
   { icon: SiAdobexd, color: "#F472B6", name: "Adobe XD" },
-  { icon: FaWordpress, color: "#3B82F6", name: "WordPress" },
+//   { icon: FaWordpress, color: "#3B82F6", name: "WordPress" },
   { icon: FaPaintBrush, color: "#FACC15", name: "Elementor" },
   { icon: FaSearch, color: "#86EFAC", name: "SEO Tools" },
   { icon: FaChartBar, color: "#60A5FA", name: "Google Analytics" },
@@ -57,18 +57,9 @@ const Technology = () => {
       <div className="text-center mb-12">
         <h2 className="text-3xl sm:text-4xl font-bold mb-3">
           We use awesome{" "}
-          <span
-            style={{
-              background:
-                "linear-gradient(90deg, #FFFFFF, #0074FF, #FFFFFF, #0074FF)",
-              backgroundSize: "300% 300%",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              animation: "gradientWave 7s ease infinite",
-            }}
-          >
+        
             Technology
-          </span>
+          
         </h2>
         <p className="text-gray-400 text-sm sm:text-base max-w-xl mx-auto">
           Our workflow is powered by modern tools and technologies that ensure
@@ -77,14 +68,14 @@ const Technology = () => {
       </div>
 
       {/* 1st Slider */}
-      <div className="w-full overflow-hidden relative mb-4">
+      <div className="w-full overflow-hidden relative mb-2">
         <div className="flex animate-marquee">
           {[...firstHalf, ...firstHalf].map((tech, index) => {
             const Icon = tech.icon;
             return (
               <div
                 key={index}
-                className="group flex-shrink-0 flex flex-col items-center justify-center w-[180px] sm:w-[200px] md:w-[220px] mx-1 text-center bg-[#110F0F] py-4 rounded-md transition-all duration-300 hover:scale-105"
+                className="group flex-shrink-0 flex flex-col items-center justify-center w-[180px] sm:w-[200px] md:w-[220px] mx-1 text-center bg-[#110F0F] py-4 rounded-md transition-all duration-300 "
                 style={{ "--hover-color": tech.color } as React.CSSProperties}
               >
                 <Icon className="text-2xl md:text-3xl mb-2 text-white transition-all duration-500 group-hover:scale-125 group-hover:[color:var(--hover-color)]" />
@@ -103,7 +94,7 @@ const Technology = () => {
             return (
               <div
                 key={index}
-                className="group flex-shrink-0 flex flex-col items-center justify-center w-[180px] sm:w-[200px] md:w-[220px] mx-1 text-center bg-[#110F0F] py-4 rounded-md transition-all duration-300 hover:scale-105"
+                className="group flex-shrink-0 flex flex-col items-center justify-center w-[180px] sm:w-[200px] md:w-[220px] mx-1 text-center bg-[#110F0F] py-4 rounded-md transition-all duration-300 "
                 style={{ "--hover-color": tech.color } as React.CSSProperties}
               >
                 <Icon className="text-2xl md:text-3xl mb-2 text-white transition-all duration-500 group-hover:scale-125 group-hover:[color:var(--hover-color)]" />
@@ -149,7 +140,7 @@ const Technology = () => {
         /* Pause on hover */
         .animate-marquee:hover,
         .animate-marquee-reverse:hover {
-          animation-play-state: paused;
+          //   animation-play-state: paused;
         }
 
         @keyframes gradientWave {
