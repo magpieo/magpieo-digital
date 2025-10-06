@@ -49,6 +49,8 @@ const techIcons = [
 // Split array into two halves
 const firstHalf = techIcons.slice(0, Math.ceil(techIcons.length / 2));
 const secondHalf = techIcons.slice(Math.ceil(techIcons.length / 2));
+console.log('');
+
 
 const Technology = () => {
   return (
