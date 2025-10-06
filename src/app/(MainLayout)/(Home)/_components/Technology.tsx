@@ -3,17 +3,13 @@ import React from "react";
 import {
   FaReact,
   FaNodeJs,
-  FaDatabase,
-  FaCss3Alt,
-  FaFigma,
-  FaWordpress,
-  FaGoogle,
-  FaSearch,
-  //   FaAdobe,
   FaFire,
   FaChartBar,
   FaPaintBrush,
   FaCode,
+  FaFigma,
+  FaWordpress,
+  FaSearch,
 } from "react-icons/fa";
 import {
   SiNextdotjs,
@@ -29,34 +25,34 @@ import {
 } from "react-icons/si";
 
 const techIcons = [
-  { icon: <FaReact className="text-sky-400" />, name: "React" },
-  { icon: <SiNextdotjs className="text-white" />, name: "Next.js" },
-  { icon: <FaNodeJs className="text-green-500" />, name: "Node.js" },
-  { icon: <FaCode className="text-gray-300" />, name: "Express.js" },
-  { icon: <SiMongodb className="text-green-400" />, name: "MongoDB" },
-  { icon: <FaFire className="text-orange-500" />, name: "Firebase" },
-  { icon: <SiMysql className="text-blue-500" />, name: "MySQL" },
-  { icon: <SiTailwindcss className="text-cyan-400" />, name: "Tailwind CSS" },
-  { icon: <SiFramer className="text-pink-500" />, name: "Framer Motion" },
-  { icon: <FaFigma className="text-purple-500" />, name: "Figma" },
-  { icon: <SiAdobexd className="text-pink-400" />, name: "Adobe XD" },
-  { icon: <FaWordpress className="text-blue-400" />, name: "WordPress" },
-  { icon: <FaPaintBrush className="text-yellow-400" />, name: "Elementor" },
-  { icon: <FaSearch className="text-green-300" />, name: "SEO Tools" },
-  { icon: <FaChartBar className="text-blue-300" />, name: "Google Analytics" },
-  { icon: <SiGoogleads className="text-blue-500" />, name: "Google Ads" },
-  { icon: <SiMeta className="text-blue-400" />, name: "Meta Ads" },
-  { icon: <SiCanva className="text-sky-400" />, name: "Canva" },
-  //   { icon: <FaAdobe className="text-red-500" />, name: "Adobe Photoshop" },
-  {
-    icon: <SiAdobeillustrator className="text-orange-400" />,
-    name: "Adobe Illustrator",
-  },
+  { icon: FaReact, color: "#38BDF8", name: "React" },
+  { icon: SiNextdotjs, color: "#FFFFFF", name: "Next.js" },
+  { icon: FaNodeJs, color: "#22C55E", name: "Node.js" },
+  { icon: FaCode, color: "#D1D5DB", name: "Express.js" },
+  { icon: SiMongodb, color: "#4ADE80", name: "MongoDB" },
+  { icon: FaFire, color: "#F97316", name: "Firebase" },
+  { icon: SiMysql, color: "#3B82F6", name: "MySQL" },
+  { icon: SiTailwindcss, color: "#06B6D4", name: "Tailwind CSS" },
+  { icon: SiFramer, color: "#EC4899", name: "Framer Motion" },
+  { icon: FaFigma, color: "#A855F7", name: "Figma" },
+  { icon: SiAdobexd, color: "#F472B6", name: "Adobe XD" },
+  { icon: FaWordpress, color: "#3B82F6", name: "WordPress" },
+  { icon: FaPaintBrush, color: "#FACC15", name: "Elementor" },
+  { icon: FaSearch, color: "#86EFAC", name: "SEO Tools" },
+  { icon: FaChartBar, color: "#60A5FA", name: "Google Analytics" },
+  { icon: SiGoogleads, color: "#3B82F6", name: "Google Ads" },
+  { icon: SiMeta, color: "#2563EB", name: "Meta Ads" },
+  { icon: SiCanva, color: "#38BDF8", name: "Canva" },
+  { icon: SiAdobeillustrator, color: "#FB923C", name: "Adobe Illustrator" },
 ];
+
+// Split array into two halves
+const firstHalf = techIcons.slice(0, Math.ceil(techIcons.length / 2));
+const secondHalf = techIcons.slice(Math.ceil(techIcons.length / 2));
 
 const Technology = () => {
   return (
-    <section className="bg-[#110F0F] text-white py-16 px-4 overflow-hidden relative">
+    <section className="text-white py-16 px-4 overflow-hidden relative">
       {/* Heading */}
       <div className="text-center mb-12">
         <h2 className="text-3xl sm:text-4xl font-bold mb-3">
@@ -80,52 +76,92 @@ const Technology = () => {
         </p>
       </div>
 
-      {/* Auto-moving Slider */}
-      {/* 1st slider  */}
-      <div className="w-full overflow-hidden relative">
-        <div className="flex gap-10 animate-marquee whitespace-nowrap">
-          {techIcons.concat(techIcons).map((tech, index) => (
-            <div
-              key={index}
-              className="flex flex-col items-center justify-center min-w-[120px] sm:min-w-[140px] text-center"
-            >
-              <div className="text-4xl sm:text-5xl mb-2">{tech.icon}</div>
-              <p className="text-xs sm:text-sm text-gray-400">{tech.name}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-      {/* 2nd slider  */}
-      <div className="w-full overflow-hidden relative">
-        <div className="flex gap-10 animate-marquee whitespace-nowrap">
-          {techIcons.concat(techIcons).map((tech, index) => (
-            <div
-              key={index}
-              className="flex flex-col items-center justify-center min-w-[120px] sm:min-w-[140px] text-center"
-            >
-              <div className="text-4xl sm:text-5xl mb-2">{tech.icon}</div>
-              <p className="text-xs sm:text-sm text-gray-400">{tech.name}</p>
-            </div>
-          ))}
+      {/* 1st Slider */}
+      <div className="w-full overflow-hidden relative mb-4">
+        <div className="flex animate-marquee">
+          {[...firstHalf, ...firstHalf].map((tech, index) => {
+            const Icon = tech.icon;
+            return (
+              <div
+                key={index}
+                className="group flex-shrink-0 flex flex-col items-center justify-center w-[180px] sm:w-[200px] md:w-[220px] mx-1 text-center bg-[#110F0F] py-4 rounded-md transition-all duration-300 hover:scale-105"
+                style={{ "--hover-color": tech.color } as React.CSSProperties}
+              >
+                <Icon className="text-2xl md:text-3xl mb-2 text-white transition-all duration-500 group-hover:scale-125 group-hover:[color:var(--hover-color)]" />
+                <p className="text-xs sm:text-sm text-gray-400">{tech.name}</p>
+              </div>
+            );
+          })}
         </div>
       </div>
 
+      {/* 2nd Slider (reverse direction) */}
+      <div className="w-full overflow-hidden relative">
+        <div className="flex  animate-marquee-reverse">
+          {[...secondHalf, ...secondHalf].map((tech, index) => {
+            const Icon = tech.icon;
+            return (
+              <div
+                key={index}
+                className="group flex-shrink-0 flex flex-col items-center justify-center w-[180px] sm:w-[200px] md:w-[220px] mx-1 text-center bg-[#110F0F] py-4 rounded-md transition-all duration-300 hover:scale-105"
+                style={{ "--hover-color": tech.color } as React.CSSProperties}
+              >
+                <Icon className="text-2xl md:text-3xl mb-2 text-white transition-all duration-500 group-hover:scale-125 group-hover:[color:var(--hover-color)]" />
+                <p className="text-xs sm:text-sm text-gray-400">{tech.name}</p>
+              </div>
+            );
+          })}
+        </div>
+      </div>
 
-
-      {/* Marquee animation */}
-      <style jsx>{`
+      {/* Animation styles */}
+      <style jsx global>{`
         @keyframes marquee {
           0% {
-            transform: translateX(0);
+            transform: translateX(0%);
           }
           100% {
             transform: translateX(-50%);
           }
         }
+
+        @keyframes marquee-reverse {
+          0% {
+            transform: translateX(-50%);
+          }
+          100% {
+            transform: translateX(0%);
+          }
+        }
+
         .animate-marquee {
           display: flex;
-          animation: marquee 30s linear infinite;
-          width: calc(200%);
+          width: max-content;
+          animation: marquee 80s linear infinite;
+        }
+
+        .animate-marquee-reverse {
+          display: flex;
+          width: max-content;
+          animation: marquee-reverse 80s linear infinite;
+        }
+
+        /* Pause on hover */
+        .animate-marquee:hover,
+        .animate-marquee-reverse:hover {
+          animation-play-state: paused;
+        }
+
+        @keyframes gradientWave {
+          0% {
+            background-position: 0% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
+          100% {
+            background-position: 0% 50%;
+          }
         }
       `}</style>
     </section>
