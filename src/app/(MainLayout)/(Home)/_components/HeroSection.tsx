@@ -71,7 +71,7 @@ const HeroSection = () => {
               </span>
             </p>
           </h2>
-          <p className=" text-justify md:text-left w-[95%] lg:w-[60%] opacity-80">
+          <p className=" text-justify md:text-left w-[95%] lg:w-[60%] opacity-70">
             At Magpieo, we create innovative digital experiences that drive
             growth and engagement. Whether it’s designing visually stunning
             websites, developing custom mobile apps, implementing data-driven

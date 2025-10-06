@@ -1,6 +1,7 @@
 import React from "react";
 import OurService from "./Service";
 import HeroSection from "./HeroSection";
+import OurCreations from "./Creatons";
 
 const Home = () => {
   return (
@@ -8,6 +9,7 @@ const Home = () => {
       <HeroSection />
       <div className="px-4">
         <div className="max-w-6xl mx-auto ">
+          <OurCreations />
           <OurService />
         </div>
       </div>
