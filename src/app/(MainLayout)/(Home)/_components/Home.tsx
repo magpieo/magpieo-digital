@@ -9,8 +9,8 @@ const Home = () => {
       <HeroSection />
       <div className="px-4">
         <div className="max-w-6xl mx-auto ">
-          <OurCreations />
           <OurService />
+          <OurCreations />
         </div>
       </div>
     </div>
