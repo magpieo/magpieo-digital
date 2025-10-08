@@ -1,7 +1,7 @@
 import React from "react";
 import OurService from "./Service";
 import HeroSection from "./HeroSection";
-import Footer from "@/app/components/shared/Footer";
+ 
 import WhyChoose from "./WhyChoose";
 import Technology from "./Technology";
 

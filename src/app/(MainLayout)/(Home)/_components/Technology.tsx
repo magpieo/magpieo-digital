@@ -8,7 +8,7 @@ import {
   FaPaintBrush,
   FaCode,
   FaFigma,
-  FaWordpress,
+ 
   FaSearch,
 } from "react-icons/fa";
 import {
