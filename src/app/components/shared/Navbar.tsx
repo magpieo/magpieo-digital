@@ -5,7 +5,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import logo from "../../../asset/logo/logo.png";
+import logo from "../../../asset/logo/logo1.png";
 import { FaBars, FaTimes, FaChevronDown } from "react-icons/fa";
 import { useState, useRef, useEffect } from "react";
 
@@ -54,84 +54,88 @@ const Navbar = () => {
     <nav className="bg-black text-white sticky top-0 z-50 shadow-md">
       <div className="flex justify-between items-center px-6 py-4 max-w-6xl mx-auto">
         {/* Logo */}
-        <div className="flex items-center">
-          <Image
-            src={logo}
-            alt="magpieo_logo"
-            height={150}
-            width={150}
-            className="transition-transform duration-300 hover:scale-105 cursor-pointer"
-          />
-        </div>
+        <Link href={"/"}>
+          <div className="flex items-center">
+            <Image
+              src={logo}
+              alt="magpieo_logo"
+              height={150}
+              width={150}
+              className="transition-transform duration-300 hover:scale-105 cursor-pointer"
+            />
+          </div>
+        </Link>
 
         {/* Desktop Menu */}
-     {/* Desktop Menu */}
-<div className="hidden md:flex items-center gap-8 text-[15px] font-medium tracking-wide">
-  {menuItems.map((item) => (
-    <div
-      key={item.name}
-      className="relative group"
-      onMouseEnter={() => item.submenu && setActiveDropdown(item.name)}
-      onMouseLeave={() => item.submenu && setActiveDropdown(null)}
-    >
-      {/* Menu Item */}
-      {item.submenu ? (
-        <div
-          className="flex items-center gap-1 cursor-pointer text-white transition-colors duration-300"
-        >
-          {item.name}
-          <FaChevronDown
-            size={12}
-            className={`ml-1 transition-transform duration-300 ${
-              activeDropdown === item.name ? "rotate-180" : ""
-            }`}
-          />
-        </div>
-      ) : (
-        <Link
-          href={item.path}
-          className={`relative pb-1 transition-all duration-300 text-white ${
-            isActive(item.path)
-              ? "border-b-[2px] border-white font-semibold"
-              : "border-b-0"
-          }`}
-        >
-          {item.name}
-        </Link>
-      )}
-
-      {/* Submenu */}
-      {item.submenu && (
-        <div
-          className={`absolute left-0 top-full mt-[2px] bg-black/95 backdrop-blur-sm text-white rounded-xl shadow-xl min-w-[220px] py-3 px-2 z-50 border border-gray-800 transition-all duration-200
-          ${activeDropdown === item.name ? "opacity-100 visible" : "opacity-0 invisible"}`}
-        >
-          {item.submenu.map((sub) => (
-            <Link
-              key={sub.name}
-              href={sub.path}
-              className={`block rounded-md px-4 py-2 text-[14px] transition-all duration-300 ${
-                pathname === sub.path
-                  ? "bg-white text-black font-semibold"
-                  : "hover:bg-white/10 hover:text-white"
-              }`}
+        {/* Desktop Menu */}
+        <div className="hidden md:flex items-center gap-8 text-[15px] font-medium tracking-wide">
+          {menuItems.map((item) => (
+            <div
+              key={item.name}
+              className="relative group"
+              onMouseEnter={() => item.submenu && setActiveDropdown(item.name)}
+              onMouseLeave={() => item.submenu && setActiveDropdown(null)}
             >
-              {sub.name}
-            </Link>
-          ))}
-        </div>
-      )}
-    </div>
-  ))}
+              {/* Menu Item */}
+              {item.submenu ? (
+                <div className="flex items-center gap-1 cursor-pointer text-white transition-colors duration-300">
+                  {item.name}
+                  <FaChevronDown
+                    size={12}
+                    className={`ml-1 transition-transform duration-300 ${
+                      activeDropdown === item.name ? "rotate-180" : ""
+                    }`}
+                  />
+                </div>
+              ) : (
+                <Link
+                  href={item.path}
+                  className={`relative pb-1 transition-all duration-300 text-white ${
+                    isActive(item.path)
+                      ? "border-b-[2px] border-white font-semibold"
+                      : "border-b-0"
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              )}
 
-  {/* CTA Button */}
-  <button className="relative overflow-hidden text-[13px] bg-white uppercase px-4 py-2 rounded-full font-semibold text-black group transition-all duration-500 cursor-pointer shadow-md hover:shadow-lg">
-    <span className="absolute left-0 top-0 h-full w-0 bg-[#1E90FF] transition-all duration-500 group-hover:w-full"></span>
-    <span className="relative z-10 flex items-center gap-2 justify-center group-hover:text-white transition-all duration-300">
-      get free consultation
-    </span>
-  </button>
-</div>
+              {/* Submenu */}
+              {item.submenu && (
+                <div
+                  className={`absolute left-0 top-full mt-[2px] bg-black/95 backdrop-blur-sm text-white rounded-xl shadow-xl min-w-[220px] py-3 px-2 z-50 border border-gray-800 transition-all duration-200
+          ${
+            activeDropdown === item.name
+              ? "opacity-100 visible"
+              : "opacity-0 invisible"
+          }`}
+                >
+                  {item.submenu.map((sub) => (
+                    <Link
+                      key={sub.name}
+                      href={sub.path}
+                      className={`block rounded-md px-4 py-2 text-[14px] transition-all duration-300 ${
+                        pathname === sub.path
+                          ? "bg-white text-black font-semibold"
+                          : "hover:bg-white/10 hover:text-white"
+                      }`}
+                    >
+                      {sub.name}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+          ))}
+
+          {/* CTA Button */}
+          <button className="relative overflow-hidden text-[13px] bg-white uppercase px-4 py-2 rounded-full font-semibold text-black group transition-all duration-500 cursor-pointer shadow-md hover:shadow-lg">
+            <span className="absolute left-0 top-0 h-full w-0 bg-[#1E90FF] transition-all duration-500 group-hover:w-full"></span>
+            <span className="relative z-10 flex items-center gap-2 justify-center group-hover:text-white transition-all duration-300">
+              get free consultation
+            </span>
+          </button>
+        </div>
 
         {/* Mobile Toggle */}
         <button

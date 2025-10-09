@@ -1,6 +1,6 @@
 import Image from "next/image";
 import WidthWrapper from "../WidthWrapper";
-import logo from "../../../asset/logo/logo.png";
+import logo from "../../../asset/logo/logo1.png";
 import { FaFacebookF, FaLinkedinIn, FaInstagram, FaTwitter } from "react-icons/fa";
 
 const Footer = () => {
