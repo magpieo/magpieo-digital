@@ -130,14 +130,15 @@ const OurService = () => {
               {/* Mobile / Small Devices */}
 
               {/* Mobile / Small Devices */}
+              {/* Mobile / Small Devices */}
               <div className="flex flex-col md:hidden rounded-2xl p-3 shadow-md gap-4">
-                {/* Title centered */}
-                <p className="text-2xl font-bold text-white text-center">
+                {/* Title left-aligned */}
+                <p className="text-2xl font-bold text-white text-left">
                   {service.title}
                 </p>
 
                 {/* Image */}
-                <div className="w-full flex justify-center">
+                <div className="w-full flex justify-start">
                   <Image
                     src={service.image}
                     alt={service.title}
@@ -146,12 +147,12 @@ const OurService = () => {
                 </div>
 
                 {/* Description */}
-                <p className="text-slate-300 text-sm text-center">
+                <p className="text-slate-300 text-sm text-left">
                   {service.description}
                 </p>
 
                 {/* Keywords */}
-                <div className="flex flex-wrap gap-2 justify-center">
+                <div className="flex flex-wrap gap-2 justify-start">
                   {service.keywords.map((keyword, i) => (
                     <span
                       key={i}
@@ -166,7 +167,7 @@ const OurService = () => {
                 {service.buttonText && (
                   <Link
                     href="#"
-                    className="inline-flex items-center gap-2 mt-2 text-white justify-center"
+                    className="inline-flex items-center gap-2 mt-2 text-white justify-start"
                   >
                     <span className="border-b border-white">
                       {service.buttonText}
