@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import logo from "../../../asset/logo/logo.png";
-import { FaBars, FaTimes, FaChevronDown, FaDownload } from "react-icons/fa";
+import { FaBars, FaTimes, FaChevronDown } from "react-icons/fa";
 import { useState, useRef, useEffect } from "react";
 
 // Unified menu structure
@@ -30,8 +30,11 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const pathname = usePathname();
-
   const dropdownRef = useRef<HTMLDivElement>(null);
+
+  const isActive = (path: string) => pathname === path;
+  const isSubmenuActive = (submenu: { name: string; path: string }[]) =>
+    submenu.some((sub) => pathname === sub.path);
 
   // ✅ Close dropdown when clicking outside
   useEffect(() => {
@@ -43,99 +46,92 @@ const Navbar = () => {
         setActiveDropdown(null);
       }
     };
-
     document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
-
-  const isActive = (path: string) => pathname === path;
-
-  const isSubmenuActive = (submenu: { name: string; path: string }[]) =>
-    submenu.some((sub) => pathname === sub.path);
-
-  const toggleDropdown = (name: string) => {
-    setActiveDropdown(activeDropdown === name ? null : name);
-    console.log("");
-  };
 
   return (
     <nav className="bg-black text-white sticky top-0 z-50 shadow-md">
-      <div className="flex justify-between items-center  px-4  py-4 max-w-6xl mx-auto">
+      <div className="flex justify-between items-center px-6 py-4 max-w-6xl mx-auto">
         {/* Logo */}
-        <div>
-          <Image src={logo} alt="magpieo_logo" height={150} width={150} />
+        <div className="flex items-center">
+          <Image
+            src={logo}
+            alt="magpieo_logo"
+            height={150}
+            width={150}
+            className="transition-transform duration-300 hover:scale-105 cursor-pointer"
+          />
         </div>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-8 text-[16px]">
-          {menuItems.map((item) => (
-            <div key={item.name} className="relative group">
-              {item.submenu ? (
-                <button
-                  onClick={() => toggleDropdown(item.name)}
-                  className={`flex items-center gap-2 hover:text-gray-300 cursor-pointer relative ${
-                    isSubmenuActive(item.submenu)
-                      ? "after:absolute after:bottom-[-4px] after:left-1/2 after:-translate-x-1/2 after:w-[10%] after:h-[2px] after:bg-white after:rounded-full"
-                      : ""
-                  }`}
-                >
-                  {item.name}
-                  <FaChevronDown size={12} />
-                </button>
-              ) : (
-                <Link
-                  href={item.path}
-                  className={`hover:text-gray-300 pb-1 ${
-                    isActive(item.path)
-                      ? "border-b-[2px] border-white"
-                      : "border-b-0"
-                  }`}
-                >
-                  {item.name}
-                </Link>
-              )}
-
-              {/* Submenu */}
-              {item.submenu && activeDropdown === item.name && (
-                <div
-                  ref={dropdownRef} // ✅ attach ref here
-                  className="absolute left-0 mt-3 bg-black text-white space-y-1 py-3 px-4 rounded-md shadow-xl min-w-[240px] z-50"
-                >
-                  {item.submenu.map((sub) => (
-                    <Link
-                      key={sub.name}
-                      href={sub.path}
-                      onClick={() => setActiveDropdown(null)}
-                      className={`block hover:text-[16px] text-sm whitespace-nowrap rounded-md px-4 py-2 transition-all
-                      ${
-                        pathname === sub.path
-                          ? "bg-white text-black font-semibold"
-                          : "bg-black text-white"
-                      }
-                      hover:bg-white hover:text-black`}
-                    >
-                      {sub.name}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
-          ))}
-
-          {/* CTA Button */}
-          <button className="relative overflow-hidden text-[12px] bg-white uppercase px-3 py-2 rounded-full font-medium text-black group transition-all duration-500 cursor-pointer">
-            {/* Background animation */}
-            <span className="absolute left-0 top-0 h-full w-0 bg-[#1E90FF] transition-all duration-500 group-hover:w-full"></span>
-
-            {/* Text + Icon */}
-            <span className="relative z-10 flex items-center gap-2 justify-center transition-all duration-500 group-hover:text-white">
-              get free consultation
-              {/* <FaDownload className="text-[12px] sm:text-[14px] transition-transform duration-300 group-hover:translate-y-[2px]" /> */}
-            </span>
-          </button>
+     {/* Desktop Menu */}
+<div className="hidden md:flex items-center gap-8 text-[15px] font-medium tracking-wide">
+  {menuItems.map((item) => (
+    <div
+      key={item.name}
+      className="relative group"
+      onMouseEnter={() => item.submenu && setActiveDropdown(item.name)}
+      onMouseLeave={() => item.submenu && setActiveDropdown(null)}
+    >
+      {/* Menu Item */}
+      {item.submenu ? (
+        <div
+          className="flex items-center gap-1 cursor-pointer text-white transition-colors duration-300"
+        >
+          {item.name}
+          <FaChevronDown
+            size={12}
+            className={`ml-1 transition-transform duration-300 ${
+              activeDropdown === item.name ? "rotate-180" : ""
+            }`}
+          />
         </div>
+      ) : (
+        <Link
+          href={item.path}
+          className={`relative pb-1 transition-all duration-300 text-white ${
+            isActive(item.path)
+              ? "border-b-[2px] border-white font-semibold"
+              : "border-b-0"
+          }`}
+        >
+          {item.name}
+        </Link>
+      )}
+
+      {/* Submenu */}
+      {item.submenu && (
+        <div
+          className={`absolute left-0 top-full mt-[2px] bg-black/95 backdrop-blur-sm text-white rounded-xl shadow-xl min-w-[220px] py-3 px-2 z-50 border border-gray-800 transition-all duration-200
+          ${activeDropdown === item.name ? "opacity-100 visible" : "opacity-0 invisible"}`}
+        >
+          {item.submenu.map((sub) => (
+            <Link
+              key={sub.name}
+              href={sub.path}
+              className={`block rounded-md px-4 py-2 text-[14px] transition-all duration-300 ${
+                pathname === sub.path
+                  ? "bg-white text-black font-semibold"
+                  : "hover:bg-white/10 hover:text-white"
+              }`}
+            >
+              {sub.name}
+            </Link>
+          ))}
+        </div>
+      )}
+    </div>
+  ))}
+
+  {/* CTA Button */}
+  <button className="relative overflow-hidden text-[13px] bg-white uppercase px-4 py-2 rounded-full font-semibold text-black group transition-all duration-500 cursor-pointer shadow-md hover:shadow-lg">
+    <span className="absolute left-0 top-0 h-full w-0 bg-[#1E90FF] transition-all duration-500 group-hover:w-full"></span>
+    <span className="relative z-10 flex items-center gap-2 justify-center group-hover:text-white transition-all duration-300">
+      get free consultation
+    </span>
+  </button>
+</div>
 
         {/* Mobile Toggle */}
         <button
@@ -148,56 +144,55 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="flex flex-col items-start bg-black text-[14px] px-[10%] text-white md:hidden pb-4 space-y-4 animate-slide-down">
+        <div className="flex flex-col items-start bg-black text-[12px] px-[8%] text-white md:hidden pb-6 space-y-1 animate-slide-down">
           {menuItems.map((item) => (
             <div key={item.name} className="relative w-full">
               {item.submenu ? (
                 <>
-                  <button
-                    onClick={() => toggleDropdown(item.name)}
-                    className={`flex items-center gap-2 w-full hover:text-gray-300 cursor-pointer relative ${
-                      isSubmenuActive(item.submenu)
-                        ? "underline underline-offset-[6px] decoration-white decoration-2"
-                        : ""
-                    }`}
-                  >
+                  {/* Section Title */}
+                  <div className="flex items-center gap-2 w-full text-gray-200 font-semibold uppercase tracking-wide">
                     {item.name}
-                    <FaChevronDown size={12} />
-                  </button>
+                    <FaChevronDown size={10} className="opacity-60" />
+                  </div>
 
-                  {activeDropdown === item.name && (
-                    <div className="flex flex-col mt-2 space-y-2 pl-4">
-                      {item.submenu.map((sub) => (
+                  {/* Submenu (always visible on mobile) */}
+                  <div className="flex flex-col mt-2 pl-3 border-l border-gray-700">
+                    {item.submenu.map((sub) => {
+                      const isActiveSub = pathname === sub.path;
+                      return (
                         <Link
                           key={sub.name}
                           href={sub.path}
-                          onClick={() => {
-                            setActiveDropdown(null);
-                            setMenuOpen(false);
-                          }}
-                          className={`text-base rounded-md px-3 py-2 transition-all
-                          ${
-                            pathname === sub.path
-                              ? "bg-white text-black font-medium"
-                              : "bg-black text-white"
-                          }
-                          hover:bg-white hover:text-black`}
+                          onClick={() => setMenuOpen(false)}
+                          className={`group relative rounded-md px-3 py-[6px] transition-all duration-300 ease-in-out flex items-center gap-2
+                      ${
+                        isActiveSub
+                          ? "bg-[#1E90FF]/20 text-white font-semibold border-l-4 border-[#1E90FF]"
+                          : "text-gray-300 hover:bg-white/10 hover:text-white"
+                      }`}
                         >
+                          {/* Animated underline */}
+                          <span
+                            className={`absolute left-0 bottom-0 h-[2px] bg-[#1E90FF] transition-all duration-300 ${
+                              isActiveSub ? "w-full" : "w-0 group-hover:w-full"
+                            }`}
+                          ></span>
                           {sub.name}
                         </Link>
-                      ))}
-                    </div>
-                  )}
+                      );
+                    })}
+                  </div>
                 </>
               ) : (
                 <Link
                   href={item.path}
                   onClick={() => setMenuOpen(false)}
-                  className={`hover:text-gray-300 ${
-                    isActive(item.path)
-                      ? "underline underline-offset-[6px] decoration-white decoration-2"
-                      : ""
-                  }`}
+                  className={`block uppercase tracking-wide py-[6px] transition-all duration-300 relative
+              ${
+                isActive(item.path)
+                  ? "text-white font-bold before:content-[''] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-1 before:h-3 before:bg-[#1E90FF] before:rounded-full pl-3"
+                  : "text-gray-300 hover:text-white hover:translate-x-1"
+              }`}
                 >
                   {item.name}
                 </Link>
@@ -206,8 +201,14 @@ const Navbar = () => {
           ))}
 
           {/* CTA Button */}
-          <button className="capitalize bg-white text-black rounded-full font-medium text-xs px-4 py-2 hover:bg-gray-200 transition mt-2">
-            let's book a meeting
+          <button className="relative overflow-hidden w-full text-[12px] bg-white uppercase px-4 py-2 rounded-full font-semibold text-black group transition-all duration-500 mt-3">
+            {/* Background Animation */}
+            <span className="absolute left-0 top-0 h-full w-0 bg-[#1E90FF] transition-all duration-500 group-hover:w-full"></span>
+
+            {/* Text */}
+            <span className="relative z-10 flex items-center justify-center gap-2 group-hover:text-white transition-all duration-300">
+              get free consultation
+            </span>
           </button>
         </div>
       )}
