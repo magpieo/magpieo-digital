@@ -124,7 +124,7 @@ const Navbar = () => {
 
           {/* CTA Button */}
           <button className="capitalize bg-white text-black rounded-full font-medium text-xs px-4 py-2 hover:bg-gray-200 transition">
-            let's book a meeting
+            let&apos;s book a meeting
           </button>
         </div>
 
@@ -198,7 +198,7 @@ const Navbar = () => {
 
           {/* CTA Button */}
           <button className="capitalize bg-white text-black rounded-full font-medium text-xs px-4 py-2 hover:bg-gray-200 transition mt-2">
-            let's book a meeting
+            let&apos;s book a meeting
           </button>
         </div>
       )}
