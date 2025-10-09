@@ -13,9 +13,6 @@ const Home = () => {
 
       <div className="">
         <div className="max-w-6xl mx-auto ">
-          <RegistrationSection />
-        </div>
-        <div className="max-w-6xl mx-auto ">
           <Technology />
         </div>
         <div className="max-w-6xl mx-auto ">
@@ -24,6 +21,9 @@ const Home = () => {
         </div>
         <div className="bg-[#110F0F] ">
           <WhyChoose />
+        </div>
+        <div className="max-w-6xl mx-auto ">
+          <RegistrationSection />
         </div>
       </div>
     </div>
