@@ -13,11 +13,12 @@ const OurService = () => {
   return (
     <div className="py-10 px-4">
       {/* Section Title */}
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 px-4 md:px-0 gap-4 md:gap-0">
-        <p className="capitalize font-extrabold text-3xl md:text-4xl text-white">
+      {/* Section Title */}
+      <div className="flex flex-col md:flex-col lg:flex-row justify-center lg:justify-between items-center lg:items-start mb-10 px-4 md:px-0 gap-4 md:gap-2">
+        <p className="capitalize font-extrabold text-3xl md:text-4xl text-white text-center lg:text-left">
           solutions
         </p>
-        <p className="text-slate-400 text-sm md:text-base text-right md:max-w-xl lg:max-w-2xl">
+        <p className="text-slate-400 text-sm md:text-base text-center lg:text-right max-w-full lg:max-w-2xl">
           We deliver end-to-end digital solutions that help global brands stand
           out, build trust, and grow faster — blending creativity, technology,
           and strategy for measurable results.
@@ -127,10 +128,30 @@ const OurService = () => {
               </motion.div>
 
               {/* Mobile / Small Devices */}
+
+              {/* Mobile / Small Devices */}
               <div className="flex flex-col md:hidden rounded-2xl p-3 shadow-md gap-4">
-                <p className="text-2xl font-bold text-white">{service.title}</p>
-                <p className="text-slate-300 text-sm">{service.description}</p>
-                <div className="flex flex-wrap gap-2">
+                {/* Title centered */}
+                <p className="text-2xl font-bold text-white text-center">
+                  {service.title}
+                </p>
+
+                {/* Image */}
+                <div className="w-full flex justify-center">
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    className="rounded-xl object-cover max-h-[200px]"
+                  />
+                </div>
+
+                {/* Description */}
+                <p className="text-slate-300 text-sm text-center">
+                  {service.description}
+                </p>
+
+                {/* Keywords */}
+                <div className="flex flex-wrap gap-2 justify-center">
                   {service.keywords.map((keyword, i) => (
                     <span
                       key={i}
@@ -140,23 +161,17 @@ const OurService = () => {
                     </span>
                   ))}
                 </div>
-                <div className="w-full flex justify-center">
-                  <Image
-                    src={service.image}
-                    alt={service.title}
-                    className="rounded-xl object-cover max-h-[200px]"
-                  />
-                </div>
 
+                {/* Button */}
                 {service.buttonText && (
                   <Link
                     href="#"
-                    className="inline-flex items-center gap-2 mt-2 text-white "
+                    className="inline-flex items-center gap-2 mt-2 text-white justify-center"
                   >
                     <span className="border-b border-white">
                       {service.buttonText}
                     </span>
-                    <FaArrowRight className="rotate-[-45deg] " />
+                    <FaArrowRight className="rotate-[-45deg]" />
                   </Link>
                 )}
               </div>
