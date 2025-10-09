@@ -1,13 +1,12 @@
 /* eslint-disable react/no-unescaped-entities */
 
-
 "use client";
 
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import logo from "../../../asset/logo/logo.png";
-import { FaBars, FaTimes, FaChevronDown } from "react-icons/fa";
+import { FaBars, FaTimes, FaChevronDown, FaDownload } from "react-icons/fa";
 import { useState, useRef, useEffect } from "react";
 
 // Unified menu structure
@@ -126,8 +125,15 @@ const Navbar = () => {
           ))}
 
           {/* CTA Button */}
-          <button className="capitalize bg-white text-black rounded-full font-medium text-xs px-4 py-2 hover:bg-gray-200 transition">
-            let's book a meeting
+          <button className="relative overflow-hidden text-[12px] bg-white uppercase px-3 py-2 rounded-full font-medium text-black group transition-all duration-500 cursor-pointer">
+            {/* Background animation */}
+            <span className="absolute left-0 top-0 h-full w-0 bg-[#1E90FF] transition-all duration-500 group-hover:w-full"></span>
+
+            {/* Text + Icon */}
+            <span className="relative z-10 flex items-center gap-2 justify-center transition-all duration-500 group-hover:text-white">
+              get free consultation
+              {/* <FaDownload className="text-[12px] sm:text-[14px] transition-transform duration-300 group-hover:translate-y-[2px]" /> */}
+            </span>
           </button>
         </div>
 
