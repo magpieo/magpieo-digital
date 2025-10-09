@@ -62,10 +62,10 @@ const OurCreations = () => {
   const rightColumn = [allCreations[3], allCreations[4], allCreations[5]];
 
   return (
-    <div className="py-10">
+    <section className="py-10 px-6">
       <div className="flex flex-col lg:flex-row items-start justify-between text-white gap-8">
         {/* Left Info */}
-        <div className="w-full lg:w-[30%]">
+        <div className="w-full lg:w-[30%] ">
           <h2 className="capitalize font-extrabold text-3xl md:text-4xl">
             Our Creations
           </h2>
@@ -80,7 +80,7 @@ const OurCreations = () => {
         </div>
 
         {/* Portfolio Columns */}
-        <div className="w-full lg:w-[70%] grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="w-full lg:w-[70%] grid grid-cols-1 md:grid-cols-2 gap-6 ">
           {/* Left Column */}
           <div className="flex flex-col gap-6">
             {leftColumn.map((creation, i) => (
@@ -110,7 +110,7 @@ const OurCreations = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
