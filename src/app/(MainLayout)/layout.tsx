@@ -6,8 +6,9 @@ const layout = ({ children }: { children: React.ReactNode }) => {
     <div>
       <Navbar />
       {children}
-      <Footer/>
-
+      <div className="bg-[#110F0F]">
+        <Footer />
+      </div>
     </div>
   );
 };

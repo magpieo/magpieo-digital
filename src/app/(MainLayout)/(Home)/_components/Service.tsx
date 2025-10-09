@@ -11,7 +11,7 @@ const OurService = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   return (
-    <div className="py-10 px-4">
+    <div className="py-10 px-4 max-w-6xl mx-auto">
       {/* Section Title */}
       {/* Section Title */}
       <div className="flex flex-col md:flex-col lg:flex-row justify-center lg:justify-between items-center lg:items-start mb-10 px-4 md:px-0 gap-4 md:gap-2">

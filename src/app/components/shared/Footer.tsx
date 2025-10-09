@@ -10,7 +10,7 @@ import {
 
 const Footer = () => {
   return (
-    <footer className="bg-black text-white py-10 px-4">
+    <footer className=" text-white pt-6 pb-3 px-4">
       <WidthWrapper>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* First Col - Logo + About */}
