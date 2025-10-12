@@ -5,6 +5,7 @@ import OurCreations from "./Creatons";
 import WhyChoose from "./WhyChoose";
 import Technology from "./Technology";
 import RegistrationSection from "./RegistrationSection";
+import LetsTalk from "./LetsTalk";
 
 const Home = () => {
   return (
@@ -12,16 +13,24 @@ const Home = () => {
       <HeroSection />
 
       <div className="">
-        <div className="max-w-6xl mx-auto ">
-          <Technology />
-        </div>
-        <div className="max-w-6xl mx-auto ">
+        <div className="  bg-[#110F0F]">
           <OurService />
-          <OurCreations />
         </div>
-        <div className="bg-[#110F0F] ">
+
+        <div className="  ">
           <WhyChoose />
         </div>
+        <div className="bg-[#110F0F]">
+          <OurCreations />
+        </div>
+        <div className="max-w-6xl mx-auto ">
+          <LetsTalk />
+        </div>
+
+        <div className="   bg-[#110F0F]">
+          <Technology />
+        </div>
+
         <div className="max-w-6xl mx-auto ">
           <RegistrationSection />
         </div>

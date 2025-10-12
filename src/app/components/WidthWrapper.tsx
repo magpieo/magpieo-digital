@@ -1,8 +1,14 @@
- 
+import React, { ReactNode } from "react";
 
-const WidthWrapper = ({ children }: any) => {
+interface WidthWrapperProps {
+  children: ReactNode;
+}
+
+const WidthWrapper: React.FC<WidthWrapperProps> = ({ children }) => {
   return (
-    <div className="max-w-6xl mx-auto   ">{children}</div>
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      {children}
+    </div>
   );
 };
 

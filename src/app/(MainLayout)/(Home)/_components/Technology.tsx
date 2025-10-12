@@ -8,7 +8,6 @@ import {
   FaPaintBrush,
   FaCode,
   FaFigma,
-  FaWordpress,
   FaSearch,
 } from "react-icons/fa";
 import {
@@ -36,7 +35,6 @@ const techIcons = [
   { icon: SiFramer, color: "#EC4899", name: "Framer Motion" },
   { icon: FaFigma, color: "#A855F7", name: "Figma" },
   { icon: SiAdobexd, color: "#F472B6", name: "Adobe XD" },
-//   { icon: FaWordpress, color: "#3B82F6", name: "WordPress" },
   { icon: FaPaintBrush, color: "#FACC15", name: "Elementor" },
   { icon: FaSearch, color: "#86EFAC", name: "SEO Tools" },
   { icon: FaChartBar, color: "#60A5FA", name: "Google Analytics" },
@@ -49,21 +47,16 @@ const techIcons = [
 // Split array into two halves
 const firstHalf = techIcons.slice(0, Math.ceil(techIcons.length / 2));
 const secondHalf = techIcons.slice(Math.ceil(techIcons.length / 2));
-console.log('');
-
 
 const Technology = () => {
   return (
-    <section className="text-white py-16 px-4 overflow-hidden relative">
+    <section className="text-white max-w-6xl mx-auto py-16 px-4 overflow-hidden relative">
       {/* Heading */}
-      <div className="text-center mb-12">
+      <div className="text-left md:text-center mb-12">
         <h2 className="text-3xl sm:text-4xl font-bold mb-3">
-          We use awesome{" "}
-        
-            Technology
-          
+          We use awesome Technology
         </h2>
-        <p className="text-gray-400 text-sm sm:text-base max-w-xl mx-auto">
+        <p className="text-gray-400 text-sm sm:text-base max-w-xl md:mx-auto">
           Our workflow is powered by modern tools and technologies that ensure
           creativity, speed, and scalability — from design to deployment.
         </p>
@@ -77,7 +70,7 @@ const Technology = () => {
             return (
               <div
                 key={index}
-                className="group flex-shrink-0 flex flex-col items-center justify-center w-[180px] sm:w-[200px] md:w-[220px] mx-1 text-center bg-[#110F0F] py-4 rounded-md transition-all duration-300 "
+                className="group flex-shrink-0 flex flex-col items-center justify-center w-[180px] sm:w-[200px] md:w-[220px] mx-1 text-center bg-[#1b1a1afb] py-4 rounded-md transition-all duration-300"
                 style={{ "--hover-color": tech.color } as React.CSSProperties}
               >
                 <Icon className="text-2xl md:text-3xl mb-2 text-white transition-all duration-500 group-hover:scale-125 group-hover:[color:var(--hover-color)]" />
@@ -90,13 +83,13 @@ const Technology = () => {
 
       {/* 2nd Slider (reverse direction) */}
       <div className="w-full overflow-hidden relative">
-        <div className="flex  animate-marquee-reverse">
+        <div className="flex animate-marquee-reverse">
           {[...secondHalf, ...secondHalf].map((tech, index) => {
             const Icon = tech.icon;
             return (
               <div
                 key={index}
-                className="group flex-shrink-0 flex flex-col items-center justify-center w-[180px] sm:w-[200px] md:w-[220px] mx-1 text-center bg-[#110F0F] py-4 rounded-md transition-all duration-300 "
+                className="group flex-shrink-0 flex flex-col items-center justify-center w-[180px] sm:w-[200px] md:w-[220px] mx-1 text-center bg-[#1b1a1afb] py-4 rounded-md transition-all duration-300"
                 style={{ "--hover-color": tech.color } as React.CSSProperties}
               >
                 <Icon className="text-2xl md:text-3xl mb-2 text-white transition-all duration-500 group-hover:scale-125 group-hover:[color:var(--hover-color)]" />
@@ -142,7 +135,7 @@ const Technology = () => {
         /* Pause on hover */
         .animate-marquee:hover,
         .animate-marquee-reverse:hover {
-          //   animation-play-state: paused;
+          // animation-play-state: paused;
         }
 
         @keyframes gradientWave {
