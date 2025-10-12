@@ -31,8 +31,8 @@ const WhyChoose = () => {
   ];
 
   return (
-    <section className="bg-black text-white py-16 px-4">
-      <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-10 items-start">
+    <section className="bg-black text-white py-16 px-3">
+      <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-10 items-start px-3">
         {/* Left Side */}
         <div className="w-full lg:w-1/3 space-y-6 text-left">
           <h2 className="text-2xl sm:text-4xl font-bold leading-snug">

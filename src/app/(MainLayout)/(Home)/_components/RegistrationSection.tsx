@@ -3,7 +3,7 @@ import React from "react";
 
 const RegistrationSection = () => {
   return (
-    <section className=" text-white py-16 px-4">
+    <section className=" text-white py-16 px-3">
       <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-10 items-start">
         {/* Left Side (1/3 on large screens) */}
         <div className="lg:w-1/3 space-y-6 text-center lg:text-left flex flex-col items-center lg:items-start">
