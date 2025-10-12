@@ -14,11 +14,11 @@ const OurService = () => {
     <div className="py-10 px-4 max-w-6xl mx-auto">
       {/* Section Title */}
       {/* Section Title */}
-      <div className="flex flex-col md:flex-col lg:flex-row justify-center lg:justify-between items-center lg:items-start mb-10 px-4 md:px-0 gap-4 md:gap-2">
-        <p className="capitalize font-extrabold text-3xl md:text-4xl text-white text-center lg:text-left">
+      <div className="flex flex-col md:flex-col lg:flex-row justify-start lg:justify-between items-start mb-10 px-4 md:px-0 gap-4 md:gap-2">
+        <p className="capitalize font-extrabold text-2xl md:text-4xl text-white text-left">
           Digital Expertise
         </p>
-        <p className="text-slate-400 text-sm md:text-base text-center lg:text-right max-w-full lg:max-w-2xl">
+        <p className="text-slate-400 text-sm md:text-base text-left max-w-full lg:max-w-2xl">
           We deliver end-to-end digital solutions that help global brands stand
           out, build trust, and grow faster — blending creativity, technology,
           and strategy for measurable results.
