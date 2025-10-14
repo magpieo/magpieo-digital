@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import toast from "react-hot-toast";
 
 const services: string[] = [
   "Branding",
@@ -32,10 +33,11 @@ const RegistrationForm = () => {
     name: "",
     email: "",
     company: "",
+    whatsapp: "",
     details: "",
   });
   const [selectedServices, setSelectedServices] = useState<string[]>([]);
-  const [selectedBudget, setSelectedBudget] = useState(budgets[0]);
+  const [selectedBudget, setSelectedBudget] = useState<string | undefined>();
 
   // --- Input handler ---
   const handleChange = (
@@ -55,7 +57,7 @@ const RegistrationForm = () => {
   };
 
   // --- Submit handler ---
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     const dataForBackend = {
@@ -64,12 +66,39 @@ const RegistrationForm = () => {
       budget: selectedBudget,
     };
 
-    console.log("dataForBackend =>", dataForBackend);
+    try {
+      const loadingToast = toast.loading("Submitting...");
 
-    // optional: reset form
-    setFormData({ name: "", email: "", company: "", details: "" });
-    setSelectedServices([]);
-    setSelectedBudget(budgets[0]);
+      await fetch(
+        "https://script.google.com/macros/s/AKfycbzy2QkPHDvgnVfgvTzbXF1QuxEsPfnXiwbcife4WO8_kfZuWp2Uu-yxT5PDjrZQJ2NJ/exec",
+        {
+          method: "POST",
+          mode: "no-cors",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(dataForBackend),
+        }
+      );
+
+      toast.dismiss(loadingToast);
+      toast.success("Form submitted successfully!");
+
+      // reset form
+      setFormData({
+        name: "",
+        email: "",
+        company: "",
+        whatsapp: "",
+        details: "",
+      });
+      setSelectedServices([]);
+      setSelectedBudget(undefined);
+    } catch (error) {
+      toast.dismiss();
+      toast.error("Something went wrong. Please try again.");
+      console.error(error);
+    }
   };
 
   return (
@@ -85,6 +114,7 @@ const RegistrationForm = () => {
             name="name"
             value={formData.name}
             onChange={handleChange}
+            required
             placeholder="Hi, I'm..."
             className="w-full bg-[#1a1a1a] border border-gray-600 rounded-md px-4 py-3 text-sm focus:outline-none focus:border-blue-500"
           />
@@ -98,23 +128,39 @@ const RegistrationForm = () => {
             name="email"
             value={formData.email}
             onChange={handleChange}
+            required
             placeholder="Where can we reach you?"
             className="w-full bg-[#1a1a1a] border border-gray-600 rounded-md px-4 py-3 text-sm focus:outline-none focus:border-blue-500"
           />
         </div>
       </div>
-
-      {/* Company Name */}
-      <div>
-        <label className="block text-sm mb-1">Company Name</label>
-        <input
-          type="text"
-          name="company"
-          value={formData.company}
-          onChange={handleChange}
-          placeholder="What’s your brand called?"
-          className="w-full bg-[#1a1a1a] border border-gray-600 rounded-md px-4 py-3 text-sm focus:outline-none focus:border-blue-500"
-        />
+      {/*Company name and Whats app  */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+          <label className="block text-sm mb-1">Company Name</label>
+          <input
+            type="text"
+            name="company"
+            value={formData.company}
+            onChange={handleChange}
+            placeholder="What’s your brand called?"
+            className="w-full bg-[#1a1a1a] border border-gray-600 rounded-md px-4 py-3 text-sm focus:outline-none focus:border-blue-500"
+          />
+        </div>
+        <div>
+          <label className="block text-sm mb-1">
+            Whats App Number<span className="text-red-500 ml-1">*</span>
+          </label>
+          <input
+            type="text"
+            name="whatsapp"
+            value={formData.whatsapp}
+            onChange={handleChange}
+            required
+            placeholder="Whats App Number"
+            className="w-full bg-[#1a1a1a] border border-gray-600 rounded-md px-4 py-3 text-sm focus:outline-none focus:border-blue-500"
+          />
+        </div>
       </div>
 
       {/* Select Your Service */}
