@@ -70,7 +70,7 @@ const RegistrationForm = () => {
       const loadingToast = toast.loading("Submitting...");
 
       await fetch(
-        "https://script.google.com/macros/s/AKfycbzy2QkPHDvgnVfgvTzbXF1QuxEsPfnXiwbcife4WO8_kfZuWp2Uu-yxT5PDjrZQJ2NJ/exec",
+        "https://script.google.com/macros/s/AKfycbxThJGmhlu2peOqKBIAtp5JpXQA5UapSlV-OZ2sLZKT-qfUv1olG34DSNHceRxtewI/exec",
         {
           method: "POST",
           mode: "no-cors",
@@ -148,16 +148,13 @@ const RegistrationForm = () => {
           />
         </div>
         <div>
-          <label className="block text-sm mb-1">
-            Whats App Number<span className="text-red-500 ml-1">*</span>
-          </label>
+          <label className="block text-sm mb-1">Whats App Number</label>
           <input
-            type="text"
+            type="tel"
             name="whatsapp"
             value={formData.whatsapp}
             onChange={handleChange}
-            required
-            placeholder="Whats App Number"
+            placeholder="Where can we contact with you?"
             className="w-full bg-[#1a1a1a] border border-gray-600 rounded-md px-4 py-3 text-sm focus:outline-none focus:border-blue-500"
           />
         </div>
