@@ -29,7 +29,7 @@ const faqs = [
 const Page = () => {
   const [openIndex, setOpenIndex] = useState(0); // open first by default
 
-  const toggleFAQ = (index) => {
+  const toggleFAQ = (index:any) => {
     setOpenIndex(index === openIndex ? null : index);
   };
 

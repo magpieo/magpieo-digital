@@ -1,3 +1,5 @@
+import WhatsAppChat from "@/app/components/shared/WhatsAppChat";
+
  
 
  
@@ -7,6 +9,9 @@ const layout = ({ children }: { children: React.ReactNode }) => {
     <div>
  
       {children}
+      <WhatsAppChat/>
+
+
     </div>
   );
 };
