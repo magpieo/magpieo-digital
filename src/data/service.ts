@@ -1,5 +1,11 @@
 import img from "../asset/home/service/2.webp";
 
+import web from "../asset/service/Magoieo_Digital_WebDesign.jpg";
+import app from "../asset/service/Magpieo_Digital_App_Design.jpg";
+import branding from "../asset/service/Magpieo_Digital_Branding.png";
+import marketing from "../asset/service/Magpieo_Digital_Digital_Marketing.jpg";
+import ui from "../asset/service/Magpieo_Digital_Digital_Marketing.jpg";
+
 export const services = [
   {
     title: "Branding",
@@ -10,7 +16,7 @@ export const services = [
       "Brand Strategy",
       "Storytelling",
     ],
-    image: img,
+    image: branding,
     buttonText: "Build My Brand ",
   },
   {
@@ -22,7 +28,7 @@ export const services = [
       "User  ",
       "Interaction Design",
     ],
-    image: img,
+    image: ui,
     buttonText: "Design My Experience  ",
   },
   {
@@ -34,7 +40,7 @@ export const services = [
       "Full-Stack Development",
       "SEO Optimization",
     ],
-    image: img,
+    image: web,
     buttonText: "Build My Website  ",
   },
   {
@@ -42,7 +48,7 @@ export const services = [
     description:
       "From concept to launch, we design apps that engage and perform. Our team ensures sleek UI, smooth UX, and platform-native solutions that meet user needs while standing out in the app marketplace.",
     keywords: ["Mobile App UI", "Cross-Platform Design", "Prototyping"],
-    image: img,
+    image: app,
     buttonText: "Design My App  ",
   },
   {
@@ -50,7 +56,7 @@ export const services = [
     description:
       "We help brands grow online with smart digital strategies. From social media campaigns to targeted ads, SEO, and content marketing, we drive visibility, traffic, and conversions for sustainable growth.",
     keywords: ["Social Media Marketing", "Content Strategy", "Paid Ads & SEO"],
-    image: img,
+    image: marketing,
     buttonText: "Grow My Business  ",
   },
 ];
