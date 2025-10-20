@@ -62,7 +62,7 @@ const OurCreations = () => {
   const rightColumn = [allCreations[3], allCreations[4], allCreations[5]];
 
   return (
-    <section className="py-10 px-6 max-w-6xl mx-auto">
+    <section className="py-10 px-3 max-w-6xl mx-auto">
       <div className="flex flex-col lg:flex-row items-start justify-between text-white gap-8">
         {/* Left Info */}
         <div className="w-full lg:w-[30%] ">
