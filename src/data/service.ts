@@ -4,7 +4,7 @@ import web from "../asset/service/Magoieo_Digital_WebDesign.jpg";
 import app from "../asset/service/Magpieo_Digital_App_Design.jpg";
 import branding from "../asset/service/Magpieo_Digital_Branding.png";
 import marketing from "../asset/service/Magpieo_Digital_Digital_Marketing.jpg";
-import ui from "../asset/service/Magpieo_Digital_Digital_Marketing.jpg";
+import ui from "../asset/service/Magpieo_Digital_uiux_ design.jpg";
 
 export const services = [
   {

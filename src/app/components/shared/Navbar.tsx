@@ -1,12 +1,3 @@
-
-
-
-
-
-
-
-
-
 /* eslint-disable react/no-unescaped-entities */
 "use client";
 
@@ -29,31 +20,11 @@ const menuItems = [
   {
     name: "Services",
     submenu: [
-      {
-        name: "Branding",
-        path: "/services/branding",
-        image: branding,
-      },
-      {
-        name: "UI/UX Design",
-        path: "/services/ui-ux-design",
-        image: ui,
-      },
-      {
-        name: "Web Development",
-        path: "/services/web-development",
-        image: web,
-      },
-      {
-        name: "App Design",
-        path: "/services/app-design",
-        image: app,
-      },
-      {
-        name: "Digital Marketing",
-        path: "/services/digital-marketing",
-        image: marketing,
-      },
+      { name: "Branding", path: "/services/branding", image: branding },
+      { name: "UI/UX Design", path: "/services/ui-ux-design", image: ui },
+      { name: "Web Development", path: "/services/web-development", image: web },
+      { name: "App Design", path: "/services/app-design", image: app },
+      { name: "Digital Marketing", path: "/services/digital-marketing", image: marketing },
     ],
   },
   { name: "About", path: "/about" },
@@ -64,6 +35,7 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [hoveredService, setHoveredService] = useState<any>(null);
+
   const pathname = usePathname();
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -79,6 +51,7 @@ const Navbar = () => {
         !dropdownRef.current.contains(event.target as Node)
       ) {
         setActiveDropdown(null);
+        setHoveredService(null);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
@@ -102,13 +75,21 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-8 text-[15px] font-medium tracking-wide relative ">
+        <div className="hidden md:flex items-center gap-8 text-[15px] font-medium tracking-wide relative">
           {menuItems.map((item) => (
             <div
               key={item.name}
               className="relative group"
-              onMouseEnter={() => item.submenu && setActiveDropdown(item.name)}
-              onMouseLeave={() => item.submenu && setActiveDropdown(null)}
+              onMouseEnter={() => {
+                if (item.submenu) {
+                  setActiveDropdown(item.name);
+                  setHoveredService(item.submenu[0]); // ✅ show first submenu item immediately
+                }
+              }}
+              onMouseLeave={() => {
+                setActiveDropdown(null);
+                setHoveredService(null);
+              }}
               ref={dropdownRef}
             >
               {/* Menu Item */}
@@ -147,23 +128,22 @@ const Navbar = () => {
               {/* Mega Menu */}
               {item.submenu && (
                 <div
-                  className={`absolute left-[-200px] top-full mt-[10px] bg-black/95 backdrop-blur-xl text-white  rounded-b-2xl shadow-2xl w-[650px] h-[320px] overflow-hidden transition-all duration-300 z-40
-                  ${
-                    activeDropdown === item.name
-                      ? "opacity-100 visible translate-y-0"
-                      : "opacity-0 invisible translate-y-5"
-                  }`}
+                  className={`absolute left-[-200px] top-full mt-[10px] bg-black/95 backdrop-blur-xl text-white rounded-b-2xl shadow-2xl w-[650px] h-[320px] overflow-hidden transition-all duration-300 z-40
+                    ${
+                      activeDropdown === item.name
+                        ? "opacity-100 visible translate-y-0"
+                        : "opacity-0 invisible translate-y-5"
+                    }`}
                 >
-       
-                  <div className="flex h-full ">
+                  <div className="flex h-full">
                     {/* Left Side - Menu List */}
-                    <div className="w-1/2 p-6 flex flex-col gap-3 border-r border-gray-800">
+                    <div className="w-1/2 pl-6 flex flex-col border-gray-800">
                       {item.submenu.map((sub) => (
                         <Link
                           key={sub.name}
                           href={sub.path}
                           onMouseEnter={() => setHoveredService(sub)}
-                          className={`text-[15px] px-4 py-2 rounded-lg transition-all duration-300
+                          className={`text-[15px] px-4 py-2 rounded-lg transition-all duration-300 
                             ${
                               pathname === sub.path
                                 ? "bg-[#1E90FF]/20 text-[#1E90FF] font-semibold"
@@ -176,7 +156,7 @@ const Navbar = () => {
                     </div>
 
                     {/* Right Side - Image Preview */}
-                    <div className="w-1/2 relative overflow-hidden flex items-center justify-center rounded-r-2xl ">
+                    <div className="w-1/2 relative overflow-hidden flex items-center justify-center rounded-r-2xl">
                       {hoveredService ? (
                         <Image
                           src={hoveredService.image}
@@ -190,20 +170,16 @@ const Navbar = () => {
                           <span className="opacity-60">to preview</span>
                         </div>
                       )}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent "></div>
-                      
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+
                       {hoveredService && (
-                        <div className="absolute bottom-4 left-4 text-white">
+                        <div className="absolute bottom-4 left-4 text-white transition-opacity duration-300">
                           <h4 className="font-semibold text-lg">
                             {hoveredService.name}
                           </h4>
                         </div>
                       )}
                     </div>
-
-
-
-
                   </div>
                 </div>
               )}
@@ -228,7 +204,7 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile Menu (unchanged) */}
+      {/* Mobile Menu */}
       {menuOpen && (
         <div className="flex flex-col items-start bg-black text-[12px] px-[8%] text-white md:hidden pb-6 space-y-1 animate-slide-down">
           {menuItems.map((item) => (
