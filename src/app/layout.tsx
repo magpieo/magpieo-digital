@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   },
   description: "We aim to empower you by providing you high quality attire.",
   icons: {
-    icon: "/favicon1.jpg", // ✅ favicon path from public folder
+    icon: "/favicon1.jpg", 
     apple: "/favicon1.jpg",
   },
 };
