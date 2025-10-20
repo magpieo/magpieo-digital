@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import RegistrationForm from "@/app/components/shared/RegistrationForm";
 import React, { useState } from "react";
