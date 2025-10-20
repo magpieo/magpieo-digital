@@ -50,7 +50,7 @@ const secondHalf = techIcons.slice(Math.ceil(techIcons.length / 2));
 
 const Technology = () => {
   return (
-    <section className="text-white max-w-6xl mx-auto py-16 px-4 overflow-hidden relative">
+    <section className="text-white max-w-6xl mx-auto py-16 px-3 overflow-hidden relative">
       {/* Heading */}
       <div className="text-left md:text-center mb-12">
         <h2 className="text-3xl sm:text-4xl font-bold mb-3">
