@@ -70,7 +70,7 @@ const RegistrationForm = () => {
       const loadingToast = toast.loading("Submitting...");
 
       await fetch(
-        "https://script.google.com/macros/s/AKfycbxThJGmhlu2peOqKBIAtp5JpXQA5UapSlV-OZ2sLZKT-qfUv1olG34DSNHceRxtewI/exec",
+        "https://script.google.com/macros/s/AKfycbzFDAn-GJM49BWoizklDmL4Ec8_-6U8w9j2okoTSJUmNhxvUJWQNTkGw-BrzMWdQM7G/exec",
         {
           method: "POST",
           mode: "no-cors",
