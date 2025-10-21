@@ -6,8 +6,8 @@
     "dev": "next dev -p 3001",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint .",
-    "export": "next export"
+    "lint": "eslint ."
+
   },
   "dependencies": {
     "@tailwindcss/cli": "^4.1.13",
