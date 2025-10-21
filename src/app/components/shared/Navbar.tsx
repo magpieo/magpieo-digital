@@ -10,12 +10,11 @@ import logo from "../../../asset/logo/logo1.png";
 import { FaBars, FaTimes, FaChevronDown } from "react-icons/fa";
 import { useState, useRef, useEffect } from "react";
 
-// Images for submenu preview
-import web from "../../../asset/service/Magoieo_Digital_WebDesign.jpg";
-import app from "../../../asset/service/Magpieo_Digital_App_Design.jpg";
-import branding from "../../../asset/service/Magpieo_Digital_Branding.png";
-import marketing from "../../../asset/service/Magpieo_Digital_Digital_Marketing.jpg";
-import ui from "../../../asset/service/Magpieo_Digital_Digital_Marketing.jpg";
+import web from "../../../asset/service/Magpieo-Digital-Web-Design-Development-Agency-Custom-Website.jpg";
+import app from "../../../asset/service/Magpieo-Digital-App-Design-Mobile-UX-UI-Interface.jpg";
+import branding from "../../../asset/service/Magpieo-Digital-Branding-Brand-Building-Strategy-Agency.jpg";
+import marketing from "../../../asset/service/Magpieo-Digital-Digital-Marketing-SEO-Analytics-Strategy.jpg";
+import ui from "../../../asset/service/Magpieo-Digital-UIUX-Design-Process-Wireframing-Prototyping.jpg";
 
 const menuItems = [
   { name: "Home", path: "/" },
@@ -24,9 +23,17 @@ const menuItems = [
     submenu: [
       { name: "Branding", path: "/services/branding", image: branding },
       { name: "UI/UX Design", path: "/services/ui-ux-design", image: ui },
-      { name: "Web Development", path: "/services/web-development", image: web },
+      {
+        name: "Web Development",
+        path: "/services/web-development",
+        image: web,
+      },
       { name: "App Design", path: "/services/app-design", image: app },
-      { name: "Digital Marketing", path: "/services/digital-marketing", image: marketing },
+      {
+        name: "Digital Marketing",
+        path: "/services/digital-marketing",
+        image: marketing,
+      },
     ],
   },
   { name: "About", path: "/about" },
@@ -189,12 +196,15 @@ const Navbar = () => {
           ))}
 
           {/* CTA Button */}
-          <button className="relative overflow-hidden text-[13px] bg-white uppercase px-4 py-2 rounded-full font-semibold text-black group transition-all duration-500 cursor-pointer shadow-md hover:shadow-lg">
-            <span className="absolute left-0 top-0 h-full w-0 bg-[#1E90FF] transition-all duration-500 group-hover:w-full"></span>
-            <span className="relative z-10 flex items-center gap-2 justify-center group-hover:text-white transition-all duration-300">
-              get free consultation
-            </span>
-          </button>
+
+          <Link href={"/contact"}>
+            <button className="relative overflow-hidden text-[13px] bg-white uppercase px-4 py-2 rounded-full font-semibold text-black group transition-all duration-500 cursor-pointer shadow-md hover:shadow-lg">
+              <span className="absolute left-0 top-0 h-full w-0 bg-[#1E90FF] transition-all duration-500 group-hover:w-full"></span>
+              <span className="relative z-10 flex items-center gap-2 justify-center group-hover:text-white transition-all duration-300">
+                get free consultation
+              </span>
+            </button>
+          </Link>
         </div>
 
         {/* Mobile Toggle */}
@@ -266,51 +276,6 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // /* eslint-disable react/no-unescaped-entities */
 

@@ -1,8 +1,8 @@
-import web from "../asset/service/Magoieo_Digital_WebDesign.jpg";
-import app from "../asset/service/Magpieo_Digital_App_Design.jpg";
-import branding from "../asset/service/Magpieo_Digital_Branding.png";
-import marketing from "../asset/service/Magpieo_Digital_Digital_Marketing.jpg";
-import ui from "../asset/service/Magpieo_Digital_uiux_ design.jpg";
+import web from "../asset/service/Magpieo-Digital-Web-Design-Development-Agency-Custom-Website.jpg";
+import app from "../asset/service/Magpieo-Digital-App-Design-Mobile-UX-UI-Interface.jpg";
+import branding from "../asset/service/Magpieo-Digital-Branding-Brand-Building-Strategy-Agency.jpg";
+import marketing from "../asset/service/Magpieo-Digital-Digital-Marketing-SEO-Analytics-Strategy.jpg";
+import ui from "../asset/service/Magpieo-Digital-UIUX-Design-Process-Wireframing-Prototyping.jpg";
 
 export const services = [
   {

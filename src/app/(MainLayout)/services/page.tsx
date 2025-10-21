@@ -6,6 +6,8 @@ import Link from "next/link";
 import Image from "next/image";
 import bannerImage from "../../../asset/service/bannerImage.png";
 import ServiceSection from "./_components/ServiceSection";
+import ParallaxBanner from "./_components/ParallaxImageBanner";
+import ParallaxImageBanner from "./_components/ParallaxImageBanner";
 
 const page = () => {
   const services = [
@@ -17,7 +19,7 @@ const page = () => {
     <div>
       <div className="flex flex-col min-h-screen bg-black">
         {/* 🔹 Banner Section */}
-        <div className="relative w-full h-[30vh] md:h-[30vh] lg:h-[50vh] overflow-hidden max-w-6xl mx-auto">
+        {/* <div className="relative w-full h-[30vh] md:h-[30vh] lg:h-[50vh] overflow-hidden max-w-6xl mx-auto">
           <Image
             src={bannerImage}
             alt="About Magpieo Digital"
@@ -25,9 +27,14 @@ const page = () => {
             className="object-cover"
             priority
           />
-        </div>
+        </div> */}
+
+ <ParallaxImageBanner
+        bannerImage={bannerImage.src}
+        // title="About Magpieo Digital"
+      />
+
         <div className="   bg-[#110F0F]">
-          
           <ServiceSection />
         </div>
 

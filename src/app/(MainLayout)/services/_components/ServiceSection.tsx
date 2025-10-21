@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const ServiceSection = () => {
   return (
@@ -32,20 +33,22 @@ const ServiceSection = () => {
             </p>
 
             {/* CTA Button */}
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.97 }}
-              type="submit"
-              className="relative overflow-hidden border border-gray-400 text-sm uppercase px-6 py-3 rounded-lg bg-white text-black font-semibold group transition-all duration-500 cursor-pointer"
-            >
-              <span className="absolute left-0 top-0 h-full w-0 bg-[#1E90FF] transition-all duration-500 group-hover:w-full"></span>
-              <span className="relative z-10 flex items-center gap-2 justify-center group-hover:text-white">
-                <span className="text-xl transition-transform duration-300 group-hover:translate-x-[4px]">
-                  🚀
+            <Link href={"/contact"}>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.97 }}
+                type="submit"
+                className="relative overflow-hidden border border-gray-400 text-sm uppercase px-6 py-3 rounded-lg bg-white text-black font-semibold group transition-all duration-500 cursor-pointer"
+              >
+                <span className="absolute left-0 top-0 h-full w-0 bg-[#1E90FF] transition-all duration-500 group-hover:w-full"></span>
+                <span className="relative z-10 flex items-center gap-2 justify-center group-hover:text-white">
+                  <span className="text-xl transition-transform duration-300 group-hover:translate-x-[4px]">
+                    🚀
+                  </span>
+                  get a free consultation
                 </span>
-                get a free consultation
-              </span>
-            </motion.button>
+              </motion.button>
+            </Link>
           </motion.div>
         </div>
       </div>
