@@ -146,8 +146,37 @@ const Footer = () => {
           </div>
         </div>
         {/* Bottom Bar */}
-        <div className="mt-10 border-t border-gray-700 pt-6 text-center text-gray-400 text-sm">
-          © {new Date().getFullYear()} Magpieo. All Rights Reserved.
+      </WidthWrapper>
+      <div className="mt-10 border-t border-gray-700 pt-4 "></div>
+      <WidthWrapper>
+        <div className=" text-gray-400 text-sm flex flex-col-reverse gap-4 md:flex-row  justify-between pb-2">
+          <p className="text-center md:text-left">
+            © {new Date().getFullYear()} Magpieo. All Rights Reserved.
+          </p>
+          <div>
+            <ul className=" flex justify-between gap-6 text-white">
+              <li>
+                <Link href="#" className="hover:text-blue-600">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link href="#" className="hover:text-blue-600">
+                  Terms of Use
+                </Link>
+              </li>
+              <li>
+                <Link href="#" className="hover:text-blue-600">
+                  Legal
+                </Link>
+              </li>
+              <li>
+                <Link href="#" className="hover:text-blue-600">
+                  Site Map
+                </Link>
+              </li>
+            </ul>
+          </div>
         </div>
       </WidthWrapper>
     </footer>
