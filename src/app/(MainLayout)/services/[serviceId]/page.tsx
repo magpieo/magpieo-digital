@@ -3,22 +3,23 @@ import Image from "next/image";
 import { services } from "@/data/service";
 
 
+// ✅ Correct typing for Next.js 15 App Router
 interface ServicePageProps {
-  params: {
+  params: Promise<{
     serviceId: string;
-  };
+  }>;
 }
 
-// ✅ generateStaticParams – automatically generate paths from data
+// ✅ Static paths
 export async function generateStaticParams() {
   return services.map((service) => ({
     serviceId: service.id,
   }));
 }
 
-// ✅ Page component
-const ServicePage = ({ params }: ServicePageProps) => {
-  const { serviceId } = params;
+// ✅ Page component (async)
+const ServicePage = async ({ params }: ServicePageProps) => {
+  const { serviceId } = await params; // ✅ await required now
   const service = services.find((s) => s.id === serviceId);
 
   if (!service) {
@@ -45,11 +46,16 @@ const ServicePage = ({ params }: ServicePageProps) => {
         {/* Text Section */}
         <div className="w-full lg:w-1/2 space-y-6">
           <h1 className="text-3xl md:text-5xl font-bold">{service.title}</h1>
-          <p className="text-gray-300 text-lg leading-relaxed">{service.description}</p>
+          <p className="text-gray-300 text-lg leading-relaxed">
+            {service.description}
+          </p>
 
           <ul className="space-y-2 mt-4">
             {service.keywords.map((keyword, index) => (
-              <li key={index} className="text-gray-400 before:content-['•'] before:mr-2">
+              <li
+                key={index}
+                className="text-gray-400 before:content-['•'] before:mr-2"
+              >
                 {keyword}
               </li>
             ))}
