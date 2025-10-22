@@ -2,6 +2,8 @@
 import heroBanner from "@/asset/home/hero-banner.jpg";
 
 const HeroSection = () => {
+  console.log('');
+  
   return (
     <div className="overflow-hidden">
       {/* Hero Section */}
