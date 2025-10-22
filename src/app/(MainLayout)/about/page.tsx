@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+ 
 
 import bannerImage from "../../../asset/about/banner.png";
 import AboutUs from "./_components/AboutUs";
