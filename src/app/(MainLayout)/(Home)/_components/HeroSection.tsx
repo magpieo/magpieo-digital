@@ -1,6 +1,5 @@
 "use client";
 import heroBanner from "@/asset/home/hero-banner.jpg";
- 
 
 const HeroSection = () => {
   return (
@@ -31,7 +30,7 @@ const HeroSection = () => {
           <h2 className="md:hidden text-3xl font-extrabold leading-snug">
             Elevate Your
             <span className="block mt-2">
-              Digital Presence with{" "} 
+              Digital Presence with{" "}
               <span
                 style={{
                   background:

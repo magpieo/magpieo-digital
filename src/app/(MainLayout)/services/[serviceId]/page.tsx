@@ -2,7 +2,6 @@ import React from "react";
 import Image from "next/image";
 import { services } from "@/data/service";
 
-
 // ✅ Correct typing for Next.js 15 App Router
 interface ServicePageProps {
   params: Promise<{
