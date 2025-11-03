@@ -2,24 +2,23 @@ import React from "react";
 import Image from "next/image";
 import { services } from "@/data/service";
 
-// ✅ Correct typing for Next.js 15 App Router
 interface ServicePageProps {
   params: Promise<{
-    serviceId: string;
+    slug: string;
   }>;
 }
 
-// ✅ Static paths
+// ✅ Generate static paths
 export async function generateStaticParams() {
   return services.map((service) => ({
-    serviceId: service.id,
+    slug: service.slug, // use slug instead of id
   }));
 }
 
-// ✅ Page component (async)
+// ✅ Page component
 const ServicePage = async ({ params }: ServicePageProps) => {
-  const { serviceId } = await params; // ✅ await required now
-  const service = services.find((s) => s.id === serviceId);
+  const { slug } = await params;
+  const service = services.find((s) => s.slug === slug);
 
   if (!service) {
     return (

@@ -26,12 +26,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: route === "" ? 1.0 : 0.8,
   }));
 
-  const dynamicServices: MetadataRoute.Sitemap = services.map((service) => ({
-    url: `${baseUrl}/services/${service.id}`,
-    lastModified: new Date(),
-    changeFrequency: "monthly" as const,
-    priority: 0.9,
-  }));
+const dynamicServices: MetadataRoute.Sitemap = services.map((service) => ({
+  url: `${baseUrl}/services/${service.slug}`, // ✅ now uses slug
+  lastModified: new Date(),
+  changeFrequency: "monthly",
+  priority: 0.9,
+}));
+
 
   return [...staticRoutes, ...dynamicServices];
 }
