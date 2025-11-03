@@ -1,5 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable react/no-unescaped-entities */
+ 
+ 
+
 "use client";
 
 import Image from "next/image";
@@ -9,12 +11,11 @@ import logo from "../../../asset/logo/logo1.png";
 import { FaBars, FaTimes, FaChevronDown } from "react-icons/fa";
 import { useState, useRef, useEffect } from "react";
 
-// Images for submenu preview
-import web from "../../../asset/service/Magoieo_Digital_WebDesign.jpg";
-import app from "../../../asset/service/Magpieo_Digital_App_Design.jpg";
-import branding from "../../../asset/service/Magpieo_Digital_Branding.png";
-import marketing from "../../../asset/service/Magpieo_Digital_Digital_Marketing.jpg";
-import ui from "../../../asset/service/Magpieo_Digital_Digital_Marketing.jpg";
+import web from "../../../asset/service/Magpieo-Digital-Web-Design-Development-Agency-Custom-Website.jpg";
+import app from "../../../asset/service/Magpieo-Digital-App-Design-Mobile-UX-UI-Interface.jpg";
+import branding from "../../../asset/service/Magpieo-Digital-Branding-Brand-Building-Strategy-Agency.jpg";
+import marketing from "../../../asset/service/Magpieo-Digital-Digital-Marketing-SEO-Analytics-Strategy.jpg";
+import ui from "../../../asset/service/Magpieo-Digital-UIUX-Design-Process-Wireframing-Prototyping.jpg";
 
 const menuItems = [
   { name: "Home", path: "/" },
@@ -31,6 +32,7 @@ const menuItems = [
   { name: "About", path: "/about" },
   { name: "Contact", path: "/contact" },
 ];
+
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -76,15 +78,24 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop Menu */}
+        {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-8 text-[15px] font-medium tracking-wide relative">
           {menuItems.map((item) => (
             <div
               key={item.name}
-              className="relative group"
+              className={`relative group pb-1 border-b-2 transition-all duration-300 ${
+                item.submenu
+                  ? isSubmenuActive(item.submenu)
+                    ? "border-white"
+                    : "border-transparent"
+                  : isActive(item.path)
+                  ? "border-white"
+                  : "border-transparent"
+              }`}
               onMouseEnter={() => {
                 if (item.submenu) {
                   setActiveDropdown(item.name);
-                  setHoveredService(item.submenu[0]); // ✅ show first submenu item immediately
+                  setHoveredService(item.submenu[0]);
                 }
               }}
               onMouseLeave={() => {
@@ -93,35 +104,23 @@ const Navbar = () => {
               }}
               ref={dropdownRef}
             >
-              {/* Menu Item */}
               {item.submenu ? (
                 <div className="flex items-center gap-1 cursor-pointer text-white transition-colors duration-300">
                   <Link
                     href="/services"
-                    className={`${
-                      isSubmenuActive(item.submenu)
-                        ? "font-semibold text-[#1E90FF]"
-                        : ""
-                    }`}
+                    className="flex items-center gap-1 font-semibold text-white"
                   >
                     {item.name}
+                    <FaChevronDown
+                      size={12}
+                      className={`ml-1 transition-transform duration-300 ${
+                        activeDropdown === item.name ? "rotate-180" : ""
+                      }`}
+                    />
                   </Link>
-                  <FaChevronDown
-                    size={12}
-                    className={`ml-1 transition-transform duration-300 ${
-                      activeDropdown === item.name ? "rotate-180" : ""
-                    }`}
-                  />
                 </div>
               ) : (
-                <Link
-                  href={item.path}
-                  className={`relative pb-1 transition-all duration-300 text-white ${
-                    isActive(item.path)
-                      ? "border-b-[2px] border-white font-semibold"
-                      : "border-b-0"
-                  }`}
-                >
+                <Link href={item.path} className="text-white font-semibold">
                   {item.name}
                 </Link>
               )}
@@ -129,41 +128,21 @@ const Navbar = () => {
               {/* Mega Menu */}
               {item.submenu && (
                 <div
-                  className={`absolute left-[-200px] top-full mt-[10px] bg-black/95 backdrop-blur-xl text-white rounded-b-2xl shadow-2xl w-[650px] h-[320px] overflow-hidden transition-all duration-300 z-40
-                    ${
-                      activeDropdown === item.name
-                        ? "opacity-100 visible translate-y-0"
-                        : "opacity-0 invisible translate-y-5"
-                    }`}
+                  className={`absolute left-[-200px] top-full mt-[10px] bg-black/95 backdrop-blur-xl text-white rounded-2xl shadow-2xl w-[650px] h-[320px] overflow-hidden transition-all duration-300 z-40 ${
+                    activeDropdown === item.name
+                      ? "opacity-100 visible translate-y-0"
+                      : "opacity-0 invisible translate-y-5"
+                  }`}
                 >
                   <div className="flex h-full">
-                    {/* Left Side - Menu List */}
-                    <div className="w-1/2 pl-6 flex flex-col border-gray-800">
-                      {item.submenu.map((sub) => (
-                        <Link
-                          key={sub.name}
-                          href={sub.path}
-                          onMouseEnter={() => setHoveredService(sub)}
-                          className={`text-[15px] px-4 py-2 rounded-lg transition-all duration-300 
-                            ${
-                              pathname === sub.path
-                                ? "bg-[#1E90FF]/20 text-[#1E90FF] font-semibold"
-                                : "hover:bg-[#1E90FF]/10 hover:text-[#1E90FF]"
-                            }`}
-                        >
-                          {sub.name}
-                        </Link>
-                      ))}
-                    </div>
-
-                    {/* Right Side - Image Preview */}
-                    <div className="w-1/2 relative overflow-hidden flex items-center justify-center rounded-r-2xl">
+                    {/* Left Side - Image */}
+                    <div className="w-1/2 relative overflow-hidden flex items-center justify-center rounded-l-2xl">
                       {hoveredService ? (
                         <Image
                           src={hoveredService.image}
                           alt={hoveredService.name}
                           fill
-                          className="object-cover rounded-r-2xl transition-all duration-500 scale-105 hover:scale-110 pt-4"
+                          className="object-cover rounded-l-2xl transition-all duration-500 scale-105 hover:scale-110"
                         />
                       ) : (
                         <div className="flex flex-col items-center justify-center text-gray-400 text-sm">
@@ -171,15 +150,26 @@ const Navbar = () => {
                           <span className="opacity-60">to preview</span>
                         </div>
                       )}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                      <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent"></div>
+                    </div>
 
-                      {hoveredService && (
-                        <div className="absolute bottom-4 left-4 text-white transition-opacity duration-300">
-                          <h4 className="font-semibold text-lg">
-                            {hoveredService.name}
-                          </h4>
-                        </div>
-                      )}
+                    {/* Right Side - Text */}
+                    <div className="w-1/2 pr-6 flex flex-col justify-start gap-2">
+                      {item.submenu.map((sub) => (
+                        <Link
+                          key={sub.name}
+                          href={sub.path}
+                          onMouseEnter={() => setHoveredService(sub)}
+                          className={`text-[15px] px-4 py-2 rounded-lg transition-all duration-300
+                    ${
+                      pathname === sub.path
+                        ? "bg-[#1E90FF]/20 text-[#1E90FF] font-semibold"
+                        : "hover:bg-[#1E90FF]/10 hover:text-[#1E90FF]"
+                    }`}
+                        >
+                          {sub.name}
+                        </Link>
+                      ))}
                     </div>
                   </div>
                 </div>
@@ -188,12 +178,14 @@ const Navbar = () => {
           ))}
 
           {/* CTA Button */}
-          <button className="relative overflow-hidden text-[13px] bg-white uppercase px-4 py-2 rounded-full font-semibold text-black group transition-all duration-500 cursor-pointer shadow-md hover:shadow-lg">
-            <span className="absolute left-0 top-0 h-full w-0 bg-[#1E90FF] transition-all duration-500 group-hover:w-full"></span>
-            <span className="relative z-10 flex items-center gap-2 justify-center group-hover:text-white transition-all duration-300">
-              get free consultation
-            </span>
-          </button>
+          <Link href={"/contact"}>
+            <button className="relative overflow-hidden text-[13px] bg-white uppercase px-4 py-2 rounded-full font-semibold text-black group transition-all duration-500 cursor-pointer shadow-md hover:shadow-lg">
+              <span className="absolute left-0 top-0 h-full w-0 bg-[#1E90FF] transition-all duration-500 group-hover:w-full"></span>
+              <span className="relative z-10 flex items-center gap-2 justify-center group-hover:text-white transition-all duration-300">
+                get free consultation
+              </span>
+            </button>
+          </Link>
         </div>
 
         {/* Mobile Toggle */}
@@ -265,51 +257,6 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // /* eslint-disable react/no-unescaped-entities */
 
