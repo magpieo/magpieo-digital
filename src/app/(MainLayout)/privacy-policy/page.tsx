@@ -20,7 +20,7 @@ const Page = () => {
           Privacy Policy - Magpieo Digital
         </h1>
         <p className="text-base sm:text-lg text-gray-300">
-          Effective Date: January 2025 — Last Updated: November 2025
+          Last Updated: November 2025
         </p>
       </motion.div>
 
