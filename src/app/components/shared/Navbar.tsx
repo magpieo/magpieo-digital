@@ -23,9 +23,17 @@ const menuItems = [
     submenu: [
       { name: "Branding", path: "/services/branding", image: branding },
       { name: "UI/UX Design", path: "/services/ui-ux-design", image: ui },
-      { name: "Web Development", path: "/services/web-development", image: web },
+      {
+        name: "Web Development",
+        path: "/services/web-development",
+        image: web,
+      },
       { name: "App Design", path: "/services/app-design", image: app },
-      { name: "Digital Marketing", path: "/services/digital-marketing", image: marketing },
+      {
+        name: "Digital Marketing",
+        path: "/services/digital-marketing",
+        image: marketing,
+      },
     ],
   },
   { name: "About", path: "/about" },
@@ -265,51 +273,6 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // /* eslint-disable react/no-unescaped-entities */
 

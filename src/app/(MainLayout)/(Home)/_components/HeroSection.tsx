@@ -1,6 +1,7 @@
 "use client";
 
 import Squares from "./components/Squares";
+import MarqueeServices from "./MarqueeServices";
 
 const HeroSection = () => {
   return (
@@ -17,8 +18,8 @@ const HeroSection = () => {
       </div>
 
       {/* Foreground content */}
-      <div className="relative z-10 text-center px-6">
-        <h2 className=" md:text-5xl font-extrabold leading-snug">
+      <div className="relative z-10 text-center px-6 -mt-12 md:-mt-32">
+        <h2 className="text-2xl md:text-5xl font-extrabold leading-snug">
           Elevate Your Digital
           <span className="block mt-2">
             Presence with{" "}
@@ -36,7 +37,7 @@ const HeroSection = () => {
             </span>
           </span>
         </h2>
-        <p className="mt-4 text-lg text-gray-300 max-w-5xl mx-auto ">
+        <p className="mt-4 md:text-lg text-gray-300 max-w-5xl mx-auto ">
           At Magpieo, we create innovative digital experiences that drive growth
           and engagement. Whether it’s designing visually stunning websites,
           developing custom mobile apps, implementing data-driven SEO
@@ -55,6 +56,12 @@ const HeroSection = () => {
             Let&apos;s Book A Meeting
           </span>
         </button>
+      </div>
+      {/* <div className=" md:hidden bg-[#1b1a1afb] absolute bottom-0 z-20">
+        <MarqueeServices />
+      </div> */}
+      <div className="bg-[#1b1a1afb] hidden md:block z-20 absolute bottom-12 -rotate-2 overflow-x-hidden ">
+        <MarqueeServices />
       </div>
     </section>
   );

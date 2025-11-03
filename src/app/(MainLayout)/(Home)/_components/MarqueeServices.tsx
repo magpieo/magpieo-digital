@@ -3,7 +3,7 @@ import { GoDotFill } from "react-icons/go";
 
 const MarqueeServices = () => {
   return (
-    <div className="py-4 md:text-2xl uppercase">
+    <div className=" py-4 md:text-2xl uppercase ">
       <Marquee direction="right">
         <div className=" flex gap-4 lg:gap-20">
           <div className="flex gap-4 lg:gap-20 items-center">
