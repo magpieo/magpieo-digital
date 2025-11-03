@@ -156,12 +156,12 @@ const Footer = () => {
           <div>
             <ul className=" flex justify-between gap-6 text-white">
               <li>
-                <Link href="#" className="hover:text-blue-600">
+                <Link href="/privacy-policy" className="hover:text-blue-600">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-blue-600">
+                <Link href="/terms-of-use" className="hover:text-blue-600">
                   Terms of Use
                 </Link>
               </li>

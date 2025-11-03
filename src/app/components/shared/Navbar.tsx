@@ -1,6 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
- 
- 
 
 "use client";
 
@@ -24,15 +22,22 @@ const menuItems = [
     submenu: [
       { name: "Branding", path: "/services/branding", image: branding },
       { name: "UI/UX Design", path: "/services/ui-ux-design", image: ui },
-      { name: "Web Development", path: "/services/web-development", image: web },
+      {
+        name: "Web Development",
+        path: "/services/web-development",
+        image: web,
+      },
       { name: "App Design", path: "/services/app-design", image: app },
-      { name: "Digital Marketing", path: "/services/digital-marketing", image: marketing },
+      {
+        name: "Digital Marketing",
+        path: "/services/digital-marketing",
+        image: marketing,
+      },
     ],
   },
   { name: "About", path: "/about" },
   { name: "Contact", path: "/contact" },
 ];
-
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -134,9 +139,9 @@ const Navbar = () => {
                       : "opacity-0 invisible translate-y-5"
                   }`}
                 >
-                  <div className="flex h-full">
+                  <div className="flex h-full  ">
                     {/* Left Side - Image */}
-                    <div className="w-1/2 relative overflow-hidden flex items-center justify-center rounded-l-2xl">
+                    <div className="w-1/2 relative overflow-hidden flex items-center justify-center rounded-l-2xl  ">
                       {hoveredService ? (
                         <Image
                           src={hoveredService.image}
