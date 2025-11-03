@@ -7,17 +7,18 @@ export const dynamic = "force-static"; // 🔥 Force static generation
 export const revalidate = false;       // ✅ No revalidation needed
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://www.magpieo.com"; // তোমার domain বসাও
+  const baseUrl = "http://localhost:3001/"; // তোমার domain বসাও
+  // const baseUrl = "https://www.magpieo.com";  
 
   const staticRoutes: MetadataRoute.Sitemap = [
     "",
     "/about",
     "/contact",
     "/services",
-    "/portfolio",
-    "/blog",
-    "/privacy-policy",
-    "/terms",
+    // "/portfolio",
+    // "/blog",
+    // "/privacy-policy",
+    // "/terms",
   ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),

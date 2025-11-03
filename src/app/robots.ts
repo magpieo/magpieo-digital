@@ -10,7 +10,8 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/", // Allow all pages
       },
     ],
-    sitemap: "https://magpieo.com/sitemap.xml", // or your local URL
+    sitemap: "http://localhost:3001/sitemap.xml", // or your local URL
+    // sitemap: "https://magpieo.com/sitemap.xml", // or your local URL
     host: "https://magpieo.com",
   };
 }
