@@ -7,6 +7,7 @@ import { TbBrandLinkedinFilled } from "react-icons/tb";
 import { PiInstagramLogoFill } from "react-icons/pi";
 import { BsTelephone } from "react-icons/bs";
 import { MdAlternateEmail } from "react-icons/md";
+import { services } from "@/data/service";
 
 const Footer = () => {
   return (
@@ -52,7 +53,7 @@ const Footer = () => {
               <h2 className="font-semibold text-lg mb-4">Company</h2>
               <ul className="space-y-2 text-gray-300 text-sm">
                 <li>
-                  <Link href="/" className="hover:text-blue-600">
+                  <Link href="/about" className="hover:text-blue-600">
                     About Us
                   </Link>
                 </li>
@@ -78,32 +79,17 @@ const Footer = () => {
             <div>
               <h2 className="font-semibold text-lg mb-4">Services</h2>
               <ul className="space-y-2 text-gray-300 text-sm">
-                <li>
-                  <Link href="/" className="hover:text-blue-600">
-                    UI/UX Design
-                  </Link>
-                </li>
-
-                <li>
-                  <Link href="/" className="hover:text-blue-600">
-                    Web Development
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/" className="hover:text-blue-600">
-                    App Design
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/" className="hover:text-blue-600">
-                    Branding
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/" className="hover:text-blue-600">
-                    Digital Marketing
-                  </Link>
-                </li>
+                {services?.length > 0 &&
+                  services?.map((service) => (
+                    <li key={service?.id}>
+                      <Link
+                        href={`/services/${service?.slug}`}
+                        className="hover:text-blue-600"
+                      >
+                        {service?.title}
+                      </Link>
+                    </li>
+                  ))}
               </ul>
             </div>
 

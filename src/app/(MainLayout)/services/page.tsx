@@ -7,6 +7,7 @@ import bannerImage from "../../../asset/service/bannerImage.png";
 import ServiceSection from "./_components/ServiceSection";
 
 import ParallaxImageBanner from "./_components/ParallaxImageBanner";
+import ServicesCards from "./_components/ServicesCards";
 
 const page = () => {
   // const services = [
@@ -24,6 +25,9 @@ const page = () => {
 
         <div className="   bg-[#110F0F]">
           <ServiceSection />
+        </div>
+        <div className="">
+          <ServicesCards />
         </div>
 
         <div className="max-w-6xl mx-auto bg-[#110F0F]">
