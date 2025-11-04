@@ -177,16 +177,6 @@ const Footer = () => {
                   Terms of Use
                 </Link>
               </li>
-              <li>
-                <Link href="/" className="hover:text-blue-600">
-                  Legal
-                </Link>
-              </li>
-              <li>
-                <Link href="/" className="hover:text-blue-600">
-                  Site Map
-                </Link>
-              </li>
             </ul>
           </div>
         </div>
