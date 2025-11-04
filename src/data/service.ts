@@ -7,22 +7,18 @@ import ui from "../asset/service/Magpieo-Digital-UIUX-Design-Process-Wireframing
 export const services = [
   {
     id: "1",
-    slug: "branding",
+    slug: "branding", // ✅ new field for route
     title: "Branding",
     subTitle: "Build a Brand That Speaks Before You Do",
     description:
       "At Magpieo, our branding services focus on building a strong, lasting identity for your business. We combine minimal design aesthetics with strategic storytelling to craft brand experiences that resonate globally.",
-    keywords: [
-      "Logo Design & Visual Identity",
-      "Brand Strategy",
-      "Storytelling",
-    ],
+    keywords: ["Logo Design & Visual Identity", "Brand Strategy", "Storytelling"],
     image: branding,
     buttonText: "Build My Brand",
   },
   {
     id: "2",
-    slug: "ui-ux-design",
+    slug: "ui-ux-design", // ✅
     title: "UI/UX Design",
     subTitle: "Human-Centered Design That Converts",
     description:
@@ -33,22 +29,18 @@ export const services = [
   },
   {
     id: "3",
-    slug: "web-development",
+    slug: "web-development", // ✅
     title: "Web Development",
     subTitle: "High-Performance Websites Built to Grow",
     description:
       "Our web development solutions bring your ideas to life with scalable, high-performance websites. We focus on speed, responsiveness, and functionality.",
-    keywords: [
-      "Responsive Websites",
-      "Full-Stack Development",
-      "SEO Optimization",
-    ],
+    keywords: ["Responsive Websites", "Full-Stack Development", "SEO Optimization"],
     image: web,
     buttonText: "Build My Website",
   },
   {
     id: "4",
-    slug: "app-design",
+    slug: "app-design", // ✅
     title: "App Design",
     subTitle: "Innovating Smarter Mobile Apps",
     description:
@@ -59,7 +51,7 @@ export const services = [
   },
   {
     id: "5",
-    slug: "digital-marketing",
+    slug: "digital-marketing", // ✅
     title: "Digital Marketing",
     subTitle: "Strategy, Storytelling, and Smart Growth",
     description:

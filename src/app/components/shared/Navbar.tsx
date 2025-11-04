@@ -1,6 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
- 
- 
 
 "use client";
 
@@ -142,9 +140,9 @@ const Navbar = () => {
                       : "opacity-0 invisible translate-y-5"
                   }`}
                 >
-                  <div className="flex h-full">
+                  <div className="flex h-full  ">
                     {/* Left Side - Image */}
-                    <div className="w-1/2 relative overflow-hidden flex items-center justify-center rounded-l-2xl">
+                    <div className="w-1/2 relative overflow-hidden flex items-center justify-center rounded-l-2xl  ">
                       {hoveredService ? (
                         <Image
                           src={hoveredService.image}
