@@ -9,6 +9,7 @@ export const services = [
     id: "1",
     slug: "branding", // ✅ new field for route
     title: "Branding",
+    subTitle: "Build a Brand That Speaks Before You Do",
     description:
       "At Magpieo, our branding services focus on building a strong, lasting identity for your business. We combine minimal design aesthetics with strategic storytelling to craft brand experiences that resonate globally.",
     keywords: ["Logo Design & Visual Identity", "Brand Strategy", "Storytelling"],
@@ -19,6 +20,7 @@ export const services = [
     id: "2",
     slug: "ui-ux-design", // ✅
     title: "UI/UX Design",
+    subTitle: "Human-Centered Design That Converts",
     description:
       "We design intuitive and engaging digital experiences. Our team blends creativity with usability to create seamless user journeys across web and mobile platforms.",
     keywords: ["Wireframing", "User Research", "Interaction Design"],
@@ -29,6 +31,7 @@ export const services = [
     id: "3",
     slug: "web-development", // ✅
     title: "Web Development",
+    subTitle: "High-Performance Websites Built to Grow",
     description:
       "Our web development solutions bring your ideas to life with scalable, high-performance websites. We focus on speed, responsiveness, and functionality.",
     keywords: ["Responsive Websites", "Full-Stack Development", "SEO Optimization"],
@@ -39,6 +42,7 @@ export const services = [
     id: "4",
     slug: "app-design", // ✅
     title: "App Design",
+    subTitle: "Innovating Smarter Mobile Apps",
     description:
       "From concept to launch, we design apps that engage and perform. Our team ensures sleek UI, smooth UX, and platform-native solutions.",
     keywords: ["Mobile App UI", "Cross-Platform Design", "Prototyping"],
@@ -49,6 +53,7 @@ export const services = [
     id: "5",
     slug: "digital-marketing", // ✅
     title: "Digital Marketing",
+    subTitle: "Strategy, Storytelling, and Smart Growth",
     description:
       "We help brands grow online with smart digital strategies. From social media campaigns to targeted ads, SEO, and content marketing.",
     keywords: ["Social Media Marketing", "Content Strategy", "Paid Ads & SEO"],

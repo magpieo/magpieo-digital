@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Squares from "./components/Squares";
+import MarqueeServices from "./MarqueeServices";
 
 const HeroSection = () => {
   console.log("");

@@ -39,6 +39,7 @@ const menuItems = [
   { name: "Contact", path: "/contact" },
 ];
 
+
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
