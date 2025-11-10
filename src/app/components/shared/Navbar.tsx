@@ -44,7 +44,7 @@ const Navbar = () => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [hoveredService, setHoveredService] = useState<any>(null);
 
-  console.log('');
+ 
   
   const pathname = usePathname();
   const dropdownRef = useRef<HTMLDivElement>(null);
